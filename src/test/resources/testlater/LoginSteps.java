@@ -176,12 +176,17 @@ public class LoginSteps {
 		            	//numpyninjapage.selectFromDropdown("Arrays");
 		            	//Thread.sleep(9000);
 		               actualMessage = numpyninjapage.getPageTitle();
+		  			 System.out.println("////////////////////////////////////////////////////////////////////////////////////////////"+actualMessage);
+		  			 System.out.println("////////////////////////////////////////////////////////////////////////////////////////////"+expectedMessage);
 
 		               // Assert.assertEquals(actualMessage,expectedMessage , "Page title does not match!");
 		  	        Assert.assertTrue(actualMessage.contains(expectedMessage));
+
 		            
 		            } else {
 		                actualMessage = loginPage.getLoginErrorMessage();
+			  			 System.out.println("//////////////////////////////////////////////////////////////////////////////"+actualMessage);
+			  			 System.out.println("////////////////////////////////////////////////////////////////////////////////////////////"+expectedMessage);
 
 				  	        Assert.assertTrue(actualMessage.contains(expectedMessage));
 		            }

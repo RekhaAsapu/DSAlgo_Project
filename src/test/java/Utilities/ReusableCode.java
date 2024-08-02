@@ -22,14 +22,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.dsAlgoWebDriverManager.DriverManager;
+
 public class ReusableCode {
-	
-	/*ExcelExtractcode();--->username,password
-	Screenshort();-->listners
-	commonmethods_tryhere();
-	Extentreport();
-	//Exception_handling();
-	config.Properties--->url, browsername*/
+	Properties prop=DriverManager.get_Properties_from_configfile();
+	WebDriver driver=DriverManager.getDriver();
+	  public void navigateTo(String pagename) {
+			String urlName = prop.getProperty(pagename);
+			driver.get(urlName);
+		}
+	   /* public void navigateTotryEditor() {
+
+			driver.get(tryEditorURL);
+
+		}*/
 	
   
 }

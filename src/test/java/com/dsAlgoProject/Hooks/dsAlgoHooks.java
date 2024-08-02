@@ -21,26 +21,56 @@ import com.dsAlgoWebDriverManager.DriverManager;
 import io.cucumber.java.Scenario;
 import Utilities.ExtentReportManager;
 import Utilities.Screenshots;
+import Utilities.TestDataFromExcelSheet;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import java.util.UUID;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class dsAlgoHooks {
 	public static Properties prop;
-	//public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();-->para
+	//public static ThreadLocal<WebDriver> tlDriver ;
 	//public static WebDriver driver;-->seq
 
-	public static WebDriver driver;
+	public  WebDriver driver;
 	public static InputStream input;
-        
+	private static final Lock lock = new ReentrantLock();
+
+	DriverManager drivermanager = new DriverManager();
 	@Before
 	public void setUp(Scenario scenario)
 	{
-		ExtentTest test = ExtentReportManager.getExtentReports().createTest(scenario.getName());
-        ExtentReportManager.setTest(test);
-        get_Properties_from_configfile();
-		initilizebrowser(prop.getProperty("browserName"));
+	    //String uniqueTestId = UUID.randomUUID().toString();
 
-        // driver = DriverManager.getDriver();
+		 ExtentTest test = ExtentReportManager.getExtentReports().createTest(scenario.getName());
+       ExtentReportManager.setTest(test);
+       // get_Properties_from_configfile();
+		//initilizebrowser(prop.getProperty("browserName")); uncomment this line for sequential
+        prop= DriverManager.getproperties();
+        lock.lock();
+        try {
+        DriverManager.initilizedriver(prop.getProperty("browserName")); 
+        }
+        finally {
+            lock.unlock();
+        }
+        driver=DriverManager.getDriver();
+         driver.manage().window().maximize();
+		//int Implicitwait=Integer.parseInt(prop.getProperty("implicitwait"));
+		//int pageLoadTimeout=Integer.parseInt(prop.getProperty("pageLoadTimeout"));
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+        driver.get("https://dsportalapp.herokuapp.com/login");
+		if(driver!=null)
+		{
+			System.out.println("driver in initilization is not null");
+			
+		}
+         
+         
+         
        /* driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
@@ -55,15 +85,10 @@ public class dsAlgoHooks {
 	}
 	@After
 	public void tearDown(Scenario scenario) {
-    	if(driver==null)
-    	{
-    		System.out.println("I'm in teardown, driver is null");
-    	}
-    	if(driver!=null)
-    	{
-		System.out.println("I'm in teardown, driver is not null");
-    	}
+    
         ExtentTest test = ExtentReportManager.getTest();
+
+
         if (scenario.isFailed()) {
         	
 
@@ -74,7 +99,7 @@ public class dsAlgoHooks {
 	        		"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
 			byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(sourcePath, "image/png", screenshotName);
-            test.addScreenCaptureFromPath(destFilePath, "Screenshot on failure");
+			   test.addScreenCaptureFromPath(destFilePath, "Screenshot on failure");
 
 
 		}
@@ -86,21 +111,30 @@ public class dsAlgoHooks {
 			scenario.attach(sourcePath, "image/png", scenario.getName().replaceAll(" ", "_"));
 
         }*/
-        else {
-            test.pass("Test passed"+ scenario.getName());
-        }
+      else {
+         test.pass("Test passed"+ scenario.getName());
+       }
+        lock.lock();
+        try {
         if(driver!=null)
         {
         	System.out.println("driver is quitting");
-    		driver.quit();
-            ExtentReportManager.flushReports();
+    		//driver.quit();
+        	
+        	DriverManager.quitDriver();
+            TestDataFromExcelSheet.removeTestData();
+             ExtentReportManager.flushReports();
+
         }
 
     	}
+        finally {
+            lock.unlock();
+        }
 
 
 
-  public static WebDriver getDriver() {
+  /*public static WebDriver getDriver() {
     	System.out.println("i;m in get driver method");
     	try {
 			if(driver==null)
@@ -115,10 +149,10 @@ public class dsAlgoHooks {
         return driver;
     	
     }
-    
+    */
    
 
-	public static void initilizebrowser(String browserName) {
+/*	public static void initilizebrowser(String browserName) {
 		if (browserName.equals("chrome")) {
 			driver  = new ChromeDriver();
 
@@ -131,8 +165,11 @@ public class dsAlgoHooks {
 		}
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+		int implicitwait=Integer.parseInt(prop.getProperty("implicitwait"));
+		int pageLoadTimeout=Integer.parseInt(prop.getProperty("pageLoadTimeout"));
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitwait));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
 		get_Properties_from_configfile();
 		driver.get(prop.getProperty("url"));
 		if(driver!=null)
@@ -140,9 +177,9 @@ public class dsAlgoHooks {
 			System.out.println("driver in initilization is not null");
 		}
 
-	}
+	}*/
 
-	public static void get_Properties_from_configfile() {
+	/*public static void get_Properties_from_configfile() {
 		prop = new Properties();
 		input = null;
 
@@ -165,9 +202,10 @@ public class dsAlgoHooks {
 				}
 
 			}
-		}
+		}*/
 	}
+}
 
 	
 
-}
+
