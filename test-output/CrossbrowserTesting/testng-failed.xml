@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [CrossbrowserTesting]">
+  <listeners>
+    <listener class-name="Utilities.RetryListner"/>
+  </listeners>
+  <test thread-count="5" parallel="methods" name="ChromeTest(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="browsername"/>
+          <include name="runScenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.dsAlgoTestRunner.SequentialAndParallelTestRunner -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [CrossbrowserTesting] -->

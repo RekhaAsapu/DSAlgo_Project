@@ -6,8 +6,9 @@
       <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner">
         <methods>
           <include name="setUpClass"/>
+          <include name="browsername"/>
+          <include name="runScenario"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0 1 2 3 4"/>
         </methods>
       </class> <!-- com.dsAlgoTestRunner.SequentialAndParallelTestRunner -->
     </classes>

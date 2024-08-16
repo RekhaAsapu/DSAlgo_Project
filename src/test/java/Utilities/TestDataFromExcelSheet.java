@@ -1,5 +1,7 @@
 package Utilities;
 	import java.io.File;
+	import java.util.Iterator;
+
 	import org.apache.poi.ss.usermodel.*;
 	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -80,28 +82,39 @@ public class TestDataFromExcelSheet {
 		
 	    private  final static String EXCEL_FILE_PATH = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\DsAlgoTestData.xlsx";
 	    private static ThreadLocal<Map<String, String>> testData = new ThreadLocal<>();
-
+//List use collection class  
+	  //  java collections-->class 
 	    public  static Map<String, String> getTestData(String sheetName, int rowNum) throws IOException {
-	        Map<String, String> data = new HashMap<>();
-	        FileInputStream file = new FileInputStream(EXCEL_FILE_PATH);
-	        Workbook workbook = new XSSFWorkbook(file);
-	        Sheet sheet = workbook.getSheet(sheetName);
+	        Map<String, String> dataMap = new HashMap<>();
+        FileInputStream file = new FileInputStream(EXCEL_FILE_PATH);
+        Workbook workbook = new XSSFWorkbook(file);
+        Sheet sheet = workbook.getSheet(sheetName);
+        if (sheet == null) {
+            throw new IllegalArgumentException("Sheet with name " + sheetName + " does not exist.");
+        }
 
-	        Row headerRow = sheet.getRow(0);
-	        Row dataRow = sheet.getRow(rowNum);
+        // Read header row
+        Row headerRow = sheet.getRow(0);
+        if (headerRow == null) {
+            throw new IllegalArgumentException("Header row is missing.");
+        }
 
-	        if (headerRow != null && dataRow != null) {
-	            for (Cell cell : headerRow) {
-	                String header = cell.getStringCellValue();
-	                String value = dataRow.getCell(cell.getColumnIndex()).getStringCellValue();
-	                data.put(header, value);
-	            }
-	        }
+        // Get the specified row
+        Row dataRow = sheet.getRow(rowNum);
+        if (dataRow == null) {
+            throw new IllegalArgumentException("Row number " + rowNum + " does not exist.");
+        }
 
-	        workbook.close();
-	        testData.set(data);
-	        return testData.get();
-	    }
+        // Read each cell in the row
+        for (int i = 0; i < dataRow.getLastCellNum(); i++) {
+            String key = headerRow.getCell(i) != null ? headerRow.getCell(i).toString() : "";
+            String value = dataRow.getCell(i) != null ? dataRow.getCell(i).toString() : "";
+            dataMap.put(key, value);
+        }
+    
+    return dataMap;
+}
+
 	    public static void removeTestData() {
 	        testData.remove();
 	    }

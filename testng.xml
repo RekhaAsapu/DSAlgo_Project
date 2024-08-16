@@ -1,20 +1,21 @@
-<suite name="Combined Suite">
-   
-<suite name="Sequential Suite" parallel="none" data-provider-thread-count="1">
-    <test name="Sequential Test">
-        <parameter name="Browser" value="chrome"/>
-        <classes>
+
+<suite name="CrossbrowserTesting" parallel="methods" thread-count="5">
+
+    <listeners>
+        <listener class-name="Utilities.RetryListner"/>
+    </listeners>
+
+   <test name="EdgeTest">
+		<parameter name="browser" value="edge"></parameter>
+    <classes>
             <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
-        </classes>
-    </test>
-</suite>
-    <!-- Parallel Execution Suite -->
-    <suite name="Parallel Suite" parallel="methods" data-provider-thread-count="2">
-        <test name="Parallel Test">
-            <parameter name="Browser" value="chrome"/>
-            <classes>
-                <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
-            </classes>
+    </classes>
         </test>
-    </suite>
-</suite>
+        <test name="ChromeTest">
+		<parameter name="browser" value="chrome"></parameter>
+    <classes>
+            <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
+    </classes>
+    
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

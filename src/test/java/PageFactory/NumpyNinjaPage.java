@@ -32,6 +32,14 @@ public class NumpyNinjaPage extends BasePage{
 	@FindBy(xpath="//div[@class='dropdown-menu show']/a")
 	private static List<WebElement> dropDownmenu;
 	
+	@FindBy(xpath="//div[@class='alert alert-primary']")
+	private static WebElement loginerrormessage;
+	
+	public String getloginerrormessage()
+	{
+		return loginerrormessage.getText();
+	}
+	
 	
 	   public void selectFromDropdown(String optionfromdropdown) {
 		   clickondataStructuresDropdown();
@@ -43,13 +51,48 @@ public class NumpyNinjaPage extends BasePage{
 	            }
 	       }
 	    }
-	   @FindBy(xpath="//h5[text()='Graph']/following-sibling::a[text()='Get Started']")
-	   private static WebElement getstartedbutton;
+	   @FindBy(xpath="//h5[text()='Data Structures-Introduction']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforDataStructuresIntroduction;
+	 
+	   @FindBy(xpath="//h5[text()='Array']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforArray;
 	   
-	   public void clickongetstartedbuttonforgraph()
+	   @FindBy(xpath="//h5[text()='Linked List']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforLinkedList;
+	 
+	   @FindBy(xpath="//h5[text()='Stack']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforStack;
+	  
+	   @FindBy(xpath="//h5[text()='Queue']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforQueue;
+	 
+	   @FindBy(xpath="//h5[text()='Tree']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforTree;
+	  
+	   @FindBy(xpath="//h5[text()='Graph']/following-sibling::a[text()='Get Started']")
+	   private static WebElement getstartedbuttonforGraph;
+	   
+	   public void clickonthegetstartedbutton(String option)
 	   {
-		   getstartedbutton.click();
+		   switch (option) {
+		     case "Arrays": getstartedbuttonforArray.click();
+		    	         break;
+		     case "Linked List": getstartedbuttonforLinkedList.click();
+	                     break;
+		     case "Stack": getstartedbuttonforStack.click();
+	                     break;
+		     case "Queue": getstartedbuttonforQueue.click();
+	                     break;
+		     case "Tree": getstartedbuttonforTree.click();
+	                     break;
+		     case "Graph": getstartedbuttonforGraph.click();
+	                     break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + option);
+		}
 	   }
+	  
+	  
 	   
 }
 	

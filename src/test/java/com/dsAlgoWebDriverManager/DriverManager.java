@@ -1,31 +1,39 @@
 package com.dsAlgoWebDriverManager;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Parameters;
 public class DriverManager {
 	
 	
 	public static Properties prop;
 	
 	public static InputStream input;
-	
-	
+	private static String browserType;
+	//public static FileOutputStream output;
 	 
 	static {
     	prop=get_Properties_from_configfile();
 
 		
 	}
+//
+//    public static String getProperty(String key) {
+//        return prop.getProperty(key);
+//    }
 
-	 
+
 	private static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>();
 
     public static synchronized WebDriver getDriver() {
@@ -34,14 +42,19 @@ public class DriverManager {
 
     public static void initilizedriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
+        //	WebDriverManager.chromedriver().setup(); 
         	tldriver.set(new ChromeDriver());
         } else if (browser.equalsIgnoreCase("firefox")) {
         	tldriver.set(new FirefoxDriver());
+        }
+        	else if (browser.equalsIgnoreCase("edge")) {
+            	tldriver.set(new EdgeDriver());
         } else {
             throw new IllegalArgumentException("Browser type not supported");
         }
     }
-
+    
+  
     public static void quitDriver() {
         if (tldriver.get() != null) {
         	tldriver.get().quit();

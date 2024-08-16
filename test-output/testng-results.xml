@@ -2,30 +2,42 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-02T12:09:29 PDT" name="Default suite" finished-at="2024-08-02T12:09:51 PDT" duration-ms="22199">
+  <suite started-at="2024-08-16T10:23:44 PDT" name="CrossbrowserTesting" finished-at="2024-08-16T10:24:00 PDT" duration-ms="16521">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-08-02T12:09:29 PDT" name="Default test" finished-at="2024-08-02T12:09:51 PDT" duration-ms="22199">
+    <test started-at="2024-08-16T10:23:44 PDT" name="EdgeTest" finished-at="2024-08-16T10:23:54 PDT" duration-ms="10967">
       <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:29 PDT" name="setUpClass" finished-at="2024-08-02T12:09:29 PDT" duration-ms="778" status="PASS">
+        <test-method is-config="true" signature="browsername(java.lang.String)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" started-at="2024-08-16T10:23:44 PDT" name="browsername" finished-at="2024-08-16T10:23:44 PDT" duration-ms="11" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@54c11750]]>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browsername -->
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" started-at="2024-08-16T10:23:44 PDT" name="setUpClass" finished-at="2024-08-16T10:23:44 PDT" duration-ms="442" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@45a4b042]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:29 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-02T12:09:37 PDT" duration-ms="7875" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" started-at="2024-08-16T10:23:44 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-16T10:23:54 PDT" duration-ms="10444" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Login with invalid input and valid input from Excel"]]>
+                <![CDATA["Login with correct username and correct password from Excel"]]>
               </value>
             </param>
             <param index="1">
@@ -37,11 +49,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:37 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-02T12:09:42 PDT" duration-ms="4495" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" started-at="2024-08-16T10:23:44 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-16T10:23:52 PDT" duration-ms="8293" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Login with invalid input and valid input from Excel"]]>
+                <![CDATA["Login with correct username and incorrect password from Excel"]]>
               </value>
             </param>
             <param index="1">
@@ -53,43 +65,73 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:42 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-02T12:09:46 PDT" duration-ms="4553" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Login with invalid input and valid input from Excel"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Feature to test Loginfunctionality"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:46 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-02T12:09:51 PDT" duration-ms="4425" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Login with invalid input and valid input from Excel"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Feature to test Loginfunctionality"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@3af9c5b7]" started-at="2024-08-02T12:09:51 PDT" name="tearDownClass" finished-at="2024-08-02T12:09:51 PDT" duration-ms="17" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@6f15d60e]" started-at="2024-08-16T10:23:54 PDT" name="tearDownClass" finished-at="2024-08-16T10:23:54 PDT" duration-ms="31" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.dsAlgoTestRunner.SequentialAndParallelTestRunner -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- EdgeTest -->
+    <test started-at="2024-08-16T10:23:55 PDT" name="ChromeTest" finished-at="2024-08-16T10:24:00 PDT" duration-ms="5489">
+      <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner">
+        <test-method is-config="true" signature="browsername(java.lang.String)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" started-at="2024-08-16T10:23:55 PDT" name="browsername" finished-at="2024-08-16T10:23:55 PDT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browsername -->
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" started-at="2024-08-16T10:23:55 PDT" name="setUpClass" finished-at="2024-08-16T10:23:55 PDT" duration-ms="57" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@16b2bb0c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" started-at="2024-08-16T10:23:55 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-16T10:24:00 PDT" duration-ms="5393" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with correct username and incorrect password from Excel"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Feature to test Loginfunctionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" started-at="2024-08-16T10:23:55 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-16T10:23:59 PDT" duration-ms="4387" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with correct username and correct password from Excel"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Feature to test Loginfunctionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.dsAlgoTestRunner.SequentialAndParallelTestRunner@1e16c0aa]" started-at="2024-08-16T10:24:00 PDT" name="tearDownClass" finished-at="2024-08-16T10:24:00 PDT" duration-ms="28" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.dsAlgoTestRunner.SequentialAndParallelTestRunner -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- CrossbrowserTesting -->
 </testng-results>

@@ -14,11 +14,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.manager.SeleniumManager;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.dsAlgoWebDriverManager.DriverManager;
 
 import io.cucumber.java.Scenario;
+import Utilities.ConfigReader;
 import Utilities.ExtentReportManager;
 import Utilities.Screenshots;
 import Utilities.TestDataFromExcelSheet;
@@ -39,48 +42,34 @@ public class dsAlgoHooks {
 
 	DriverManager drivermanager = new DriverManager();
 	@Before
-	public void setUp(Scenario scenario)
+	public void setUp(Scenario scenario) throws Throwable
 	{
 	    //String uniqueTestId = UUID.randomUUID().toString();
 
 		 ExtentTest test = ExtentReportManager.getExtentReports().createTest(scenario.getName());
        ExtentReportManager.setTest(test);
-       // get_Properties_from_configfile();
-		//initilizebrowser(prop.getProperty("browserName")); uncomment this line for sequential
         prop= DriverManager.getproperties();
-        lock.lock();
+       lock.lock();
         try {
-        DriverManager.initilizedriver(prop.getProperty("browserName")); 
+    		String browser = ConfigReader.getBrowserType();
+    		//System.out.println("ccccccccccccccccccccccccccccc"+
+    		//SeleniumManager.getInstance().getDriverPath("msedgedriver"));
+        DriverManager.initilizedriver(browser); 
         }
         finally {
             lock.unlock();
         }
         driver=DriverManager.getDriver();
          driver.manage().window().maximize();
-		//int Implicitwait=Integer.parseInt(prop.getProperty("implicitwait"));
-		//int pageLoadTimeout=Integer.parseInt(prop.getProperty("pageLoadTimeout"));
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
-        driver.get("https://dsportalapp.herokuapp.com/login");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(300));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(300));
+        driver.get(prop.getProperty("loginpage"));
 		if(driver!=null)
 		{
 			System.out.println("driver in initilization is not null");
 			
 		}
-         
-         
-         
-       /* driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
-		get_Properties_from_configfile();
-		driver.get(prop.getProperty("url"));
-		if(driver!=null)
-		{
-			System.out.println("driver in initilization is not null");
-		}
-		//initilizebrowser(prop.getProperty("browserName"));*/
+ 
         
 	}
 	@After
@@ -103,14 +92,7 @@ public class dsAlgoHooks {
 
 
 		}
-        /*if (scenario.isFailed()) {
-            test.fail("Test failed"+ scenario.getName());
-
-            String dest =Screenshots.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_"));
-            test.addScreenCaptureFromPath(dest, "Screenshot on failure");
-			scenario.attach(sourcePath, "image/png", scenario.getName().replaceAll(" ", "_"));
-
-        }*/
+        
       else {
          test.pass("Test passed"+ scenario.getName());
        }
@@ -118,9 +100,7 @@ public class dsAlgoHooks {
         try {
         if(driver!=null)
         {
-        	System.out.println("driver is quitting");
-    		//driver.quit();
-        	
+        	System.out.println("driver is quitting");        	
         	DriverManager.quitDriver();
             TestDataFromExcelSheet.removeTestData();
              ExtentReportManager.flushReports();
@@ -131,78 +111,6 @@ public class dsAlgoHooks {
         finally {
             lock.unlock();
         }
-
-
-
-  /*public static WebDriver getDriver() {
-    	System.out.println("i;m in get driver method");
-    	try {
-			if(driver==null)
-			{
-				System.out.println("driver is null");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-        return driver;
-    	
-    }
-    */
-   
-
-/*	public static void initilizebrowser(String browserName) {
-		if (browserName.equals("chrome")) {
-			driver  = new ChromeDriver();
-
-		} else if (browserName.equals("firefox")) {
-			driver  = new FirefoxDriver();
-
-		} else if (browserName.equals("edge")) {
-			driver  = new EdgeDriver();
-
-		}
-
-		driver.manage().window().maximize();
-		int implicitwait=Integer.parseInt(prop.getProperty("implicitwait"));
-		int pageLoadTimeout=Integer.parseInt(prop.getProperty("pageLoadTimeout"));
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitwait));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
-		get_Properties_from_configfile();
-		driver.get(prop.getProperty("url"));
-		if(driver!=null)
-		{
-			System.out.println("driver in initilization is not null");
-		}
-
-	}*/
-
-	/*public static void get_Properties_from_configfile() {
-		prop = new Properties();
-		input = null;
-
-		try {
-			input = new FileInputStream(System.getProperty("user.dir")
-					+ "\\src\\test\\resources\\config\\global.properties");
-			prop.load(input);
-
-			System.out.println(prop.getProperty("browserName"));
-
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					System.out.println("wrongpath");
-					e.printStackTrace();
-				}
-
-			}
-		}*/
 	}
 }
 

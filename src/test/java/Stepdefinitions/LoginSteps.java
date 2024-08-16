@@ -1,13 +1,14 @@
 package Stepdefinitions;
 
 import PageFactory.NumpyNinjaPage;
-import PageFactory.loginpage;
 import Utilities.ExtentReportManager;
 import Utilities.Screenshots;
 import Utilities.TestDataFromExcelSheet;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import log4j.LoggerLoad;
+
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -20,13 +21,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.dsAlgoProject.Hooks.dsAlgoHooks;
 import com.dsAlgoWebDriverManager.DriverManager;
-
+import PageFactory.loginpage;
 public class LoginSteps {
 
 	TestDataFromExcelSheet excelreader = new TestDataFromExcelSheet();
@@ -34,7 +36,8 @@ public class LoginSteps {
 	dsAlgoHooks hooks = new dsAlgoHooks();
 	String expectedMessage;
 	 private Map<String, String> data;
-
+	 String actualMessage;
+    NumpyNinjaPage numpyninjapage;
 	//WebDriver driver = dsAlgoHooks.getDriver();
 		//DriverManager drivermanager = new DriverManager();
 
@@ -46,150 +49,94 @@ public class LoginSteps {
 	       // this.driver = DriverManager.getThreadLocalDriver(); 
 	    	
 	    	this.driver = DriverManager.getDriver();// Get WebDriver based on config properties
-	    	
+			loginPage = new loginpage(driver);
+			numpyninjapage=new NumpyNinjaPage(driver);
 	    }
 	    
-	/*
-	 * @Given("user is on DsAlgoAppliction") public void
-	 * user_is_on_DsAlgoApplication() { loginPage=new loginpage(driver);
-	 * 
-	 * }
-	 * 
-	 * 
-	 * @When("user enters a valid username and valid password from Excel") public
-	 * void user_enters_a_valid_username_and_valid_password_from_Excel() throws
-	 * InvalidFormatException, IOException,
-	 * org.apache.poi.openxml4j.exceptions.InvalidFormatException {
-	 * 
-	 * String filePath = System.getProperty("user.dir")
-	 * +"\\src\\test\\resources\\testdata\\DsAlgoTestData.xlsx";
-	 * excelreader.getData(filePath, "LoginUsernamePassword"); String username =
-	 * excelreader.getCellData(1, 0); String password = excelreader.getCellData(1,
-	 * 1);
-	 * 
-	 * loginpage.enterusername(username); loginpage.enterpassword(password); }
-	 * 
-	 * 
-	 * 
-	 * @Then("clicks on login button") public void clicks_on_login_button() {
-	 * 
-	 * loginPage.clickonloginbutton(); System.out.println("clicked login"); }
-	 * 
-	 * 
-	 * @Given("User is on the Login Page") public void user_is_on_the_login_page() {
-	 * 
-	 * }
-	 * 
-	 * @When("user enters a invalid and valid inputs from {String} and {int} ")
-	 * public void user_enters_a_invalid_and_valid_inputs_from_and(String sheetname,
-	 * int rownumber) { System.out.println("xgdets"); }
-	 * 
-	 * @Then("click on login button") public void click_on_login_button() {
-	 * 
-	 * }
-	 * 
-	 * 
-	 */
+	    @When("User clicks on getstarted button in getstarted page")
+	    public void User_clicks_on_getstarted_button_in_getstarted_page() {
+	    	loginpage.clickonGetStartedbutton();
+	    }
+     
+	
+	    @Then("User will be navigated to {string} page")
+	    public void user_will_be_navigated_to_page(String expectedPage) {
+	        String actualPage = loginPage.getTitle();//numpyninja
+	        Assert.assertTrue(actualPage.contains(expectedPage));
+	    }
+	    
+  
 
-	/*
-	 * @Given("user is on DsAlgoAppliction") public void
-	 * user_is_on_ds_algo_appliction() { loginPage=new loginpage(driver);
-	 * 
-	 * }
-	 * 
-	 * @When("user enters valid username and valid password from Excel") public void
-	 * user_enters_valid_username_and_valid_password_from_excel() throws
-	 * org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
-	 * /*String filePath = System.getProperty("user.dir")
-	 * +"\\src\\test\\resources\\testdata\\DsAlgoTestData.xlsx";
-	 */
-	/*
-	 * excelreader.printData();
-	 * 
-	 * String username = (String) data[1][0]; String password = (String) data[1][1];
-	 */
+	  
+	    @When("User clicks on getstarted button in numpyninja page for {string}")
+	    public void User_clicks_on_getstarted_button_in_numpyninja_page_for(String option) {
+	    	numpyninjapage.clickonthegetstartedbutton(option);
+	    }
+	    
+	   @Then("user should get error message saying {string}")
+	    public void user_should_get_error_message_saying(String expectedMessage) {
+		   actualMessage=numpyninjapage.getloginerrormessage();
+	        Assert.assertTrue(actualMessage.contains(expectedMessage));
+	    }
 
-	/*
-	 * loginpage.enterusername("dsalgoteam"); loginpage.enterpassword("Admin@1234");
-	 * 
-	 * }
-	 * 
-	 * @When("clicks on login button") public void clicks_on_login_button() {
-	 * loginPage.clickonloginbutton(); System.out.println("clicked login"); }
-	 */
-
-	/*
-	 * @Then("user is navigated to home page") public void
-	 * user_is_navigated_to_home_page() { }
-	 */
-
-	/*
-	 * public LoginSteps() { this.driver = hooks.getDriver();
-	 * System.out.println("Login steps constructor");// Get the WebDriver instance
-	 * from Hooks }
-	 */
-
-	@Given("User is on the Login Page")
-	public void user_is_on_the_login_page() {
-		//u ExtentTest test = ExtentReportManager.getTest();
-		//u test.info("Navigating to login page");
-		loginPage = new loginpage(driver);
-
-	}
-
+	    
 	@When("User  enters a invalid and valid inputs from {string} and  {int}")
 	public void user_enters_a_invalid_and_valid_inputs_from_and(String sheetName, Integer rowNumber)
 			throws org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException, InterruptedException 
 	{
-		//uExtentTest test = ExtentReportManager.getTest();
-		//utest.info("Entering username and password");
+		
 	data = TestDataFromExcelSheet.getTestData("LoginUsernamePassword", rowNumber);
-  
-
-        // Thread.sleep(1000);
 		loginpage.enterusername(data.get("Username"));
-      //  Thread.sleep(1000);
 		loginpage.enterpassword(data.get("Password"));
 		expectedMessage=data.get("Message");
-	System.out.println("message froom excel msg:::::::::::::::::::::::"+expectedMessage);
-		//Assert.assertTrue(true);
-	System.out.println("message froom excel sheet:::::::::::::::::::::::"+data.get("Username"));
-
-	System.out.println("message froom excel sheet:::::::::::::::::::::::"+data.get("Password"));
+		LoggerLoad.info("User entered Username: "+data.get("Username"));
+		LoggerLoad.info("User entered Password: "+data.get("Password"));
 
 
 	}
 
 	@Then("click on login button")
 	public void click_on_login_button() throws InterruptedException {
-		System.out.println("i'm in click method");
-		//uExtentTest test = ExtentReportManager.getTest();
-		//utest.info("Verifying login");
-		if (driver != null) {
-			System.out.println("in click driver is not null");
 			NumpyNinjaPage numpyninjapage =loginPage.clickonloginbutton();
-			//Thread.sleep(80);
-			 String actualMessage;
-			// System.out.println("???????????????????/????????????"+expectedMessage);
 		        try {
-		            if (expectedMessage.equals(numpyninjapage.getPageTitle()) ){
-		            	//numpyninjapage.selectFromDropdown("Arrays");
-		            	//Thread.sleep(9000);
-		               actualMessage = numpyninjapage.getPageTitle();
+		            if (expectedMessage.equals(numpyninjapage.getTitle()) ){
+		               actualMessage = numpyninjapage.getTitle();
 
-		               // Assert.assertEquals(actualMessage,expectedMessage , "Page title does not match!");
-		  	        Assert.assertTrue(actualMessage.contains(expectedMessage));
+		              Assert.assertTrue(actualMessage.contains(expectedMessage));
+                       LoggerLoad.info("User logged in sucessfully");
 		            
 		            } else {
 		                actualMessage = loginPage.getLoginErrorMessage();
-
 				  	        Assert.assertTrue(actualMessage.contains(expectedMessage));
+				  	      LoggerLoad.info("User entered username or password incorrectly");
 		            }
 		        }
 		        finally {
-		        	
+		            LoggerLoad.info("Completed login attempt.");
+
 		        }
 		}
+   @Then ("the user should see {string} message for {string}")
+    public void the_user_should_see_message_for(String expectedMessage, String field) throws InterruptedException
+    {
+	   
+       String actualMessage;
+//       if ((field.contains("username") && field.contains("password"))
+//    		   ||((field.contains("username")||(field.contains("password"))))) {
+    	   actualMessage = loginPage.getRequiredFieldErrorMessage(field);
+    		   
+    
+	   LoggerLoad.info("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuUser did not enter fields "+ field);
+       System.out.println("aaaaaaaaaaaaaaaaaaa"+actualMessage.trim());
+       System.out.println("eeeeeeeeeeeeeeeeee"+expectedMessage.trim());
+		Thread.sleep(99);
+
+       Assert.assertEquals(actualMessage, expectedMessage,"Error messsages did not match");
+       
+   
+    }
+    
+
 	}
-}
+
 
