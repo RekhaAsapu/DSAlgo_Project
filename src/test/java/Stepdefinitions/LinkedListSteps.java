@@ -36,7 +36,7 @@ public class LinkedListSteps {
 	 @When("the user selects {string} button")
 	    public void the_user_selects_button(String link) {
 		 linkedlistpage.selectonlink(link);
-			LoggerLoad.info("User clicked on the "+link);
+			LoggerLoad.info("User clicked on the "+link);// logger load
 	       
 	    }
 
