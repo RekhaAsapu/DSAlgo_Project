@@ -26,6 +26,7 @@ import Utilities.ExtentReportManager;
 import Utilities.Screenshots;
 import Utilities.TestDataFromExcelSheet;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import java.util.UUID;
 import java.util.concurrent.locks.Lock;
@@ -72,30 +73,55 @@ public class dsAlgoHooks {
  
         
 	}
+	@AfterStep
+    public void afterStep(Scenario scenario) {
+        ExtentTest test = ExtentReportManager.getTest();
+
+		 if (scenario.isFailed()) {
+	        	
+
+				// take screenshot:
+				String screenshotName = scenario.getName().replaceAll(" ", "_");
+		        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		        String destFilePath = System.getProperty("user.dir")+
+		        		"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
+				byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+				scenario.attach(sourcePath, "image/png", screenshotName);
+				   test.addScreenCaptureFromPath(destFilePath, "Screenshot on failure");
+
+
+			}
+	        
+	      else {
+	         test.pass("Test passed"+ scenario.getName());
+	       }
+	       
+		}
+    
 	@After
 	public void tearDown(Scenario scenario) {
     
-        ExtentTest test = ExtentReportManager.getTest();
-
-
-        if (scenario.isFailed()) {
-        	
-
-			// take screenshot:
-			String screenshotName = scenario.getName().replaceAll(" ", "_");
-	        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-	        String destFilePath = System.getProperty("user.dir")+
-	        		"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
-			byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(sourcePath, "image/png", screenshotName);
-			   test.addScreenCaptureFromPath(destFilePath, "Screenshot on failure");
-
-
-		}
-        
-      else {
-         test.pass("Test passed"+ scenario.getName());
-       }
+//        ExtentTest test = ExtentReportManager.getTest();
+//
+//
+//        if (scenario.isFailed()) {
+//        	
+//
+//			// take screenshot:
+//			String screenshotName = scenario.getName().replaceAll(" ", "_");
+//	        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+//	        String destFilePath = System.getProperty("user.dir")+
+//	        		"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
+//			byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(sourcePath, "image/png", screenshotName);
+//			   test.addScreenCaptureFromPath(destFilePath, "Screenshot on failure");
+//
+//
+//		}
+//        
+//      else {
+//         test.pass("Test passed"+ scenario.getName());
+//       }
         lock.lock();
         try {
         if(driver!=null)

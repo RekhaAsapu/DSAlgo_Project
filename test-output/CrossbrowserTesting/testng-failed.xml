@@ -11,7 +11,7 @@
         <methods>
           <include name="setUpClass"/>
           <include name="browsername"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="14"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- com.dsAlgoTestRunner.SequentialAndParallelTestRunner -->

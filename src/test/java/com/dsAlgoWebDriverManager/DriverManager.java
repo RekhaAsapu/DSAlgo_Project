@@ -12,8 +12,12 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Parameters;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverManager {
 	
 	
@@ -41,15 +45,19 @@ public class DriverManager {
     }
 
     public static void initilizedriver(String browser) {
+		//DesiredCapabilities capabilities = new DesiredCapabilities();
+
         if (browser.equalsIgnoreCase("chrome")) {
-        //	WebDriverManager.chromedriver().setup(); 
+        	//capabilities.setBrowserName("chrome")
         	tldriver.set(new ChromeDriver());
         } else if (browser.equalsIgnoreCase("firefox")) {
         	tldriver.set(new FirefoxDriver());
         }
         	else if (browser.equalsIgnoreCase("edge")) {
+        		//capabilities.setBrowserName("edge");
             	tldriver.set(new EdgeDriver());
-        } else {
+        } 
+        	else {
             throw new IllegalArgumentException("Browser type not supported");
         }
     }

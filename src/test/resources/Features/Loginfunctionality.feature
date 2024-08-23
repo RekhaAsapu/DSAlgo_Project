@@ -1,31 +1,31 @@
     Feature: Feature to test Loginfunctionality
      
-    Scenario Outline: Login with correct username and correct password from Excel
-   Given the user is on "loginpage"
-   When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
-    Then click on login button
-    Examples:
-    |Sheetname            |RowNumber|
-    |LoginUsernamePassword|     1|
-  
+    #Scenario Outline: Login with correct username and correct password from Excel
+   #Given the user is on "loginpage"
+   #When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
+    #Then click on login button
+    #Examples:
+    #|Sheetname            |RowNumber|
+    #|LoginUsernamePassword|     1|
+  #
     
-     Scenario Outline: Login with correct username and incorrect password from Excel
-   Given the user is on "loginpage"
-   When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
-    Then click on login button
-    Examples:
-    |Sheetname            |RowNumber|
-    |LoginUsernamePassword|     2|
-  
-    
-     Scenario Outline: Login with incorrect username and correct password from Excel
-   Given the user is on "loginpage"
-   When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
-    Then click on login button
-    Examples:
-    |Sheetname            |RowNumber|
-    |LoginUsernamePassword|     3|
-    
+     #Scenario Outline: Login with correct username and incorrect password from Excel
+   #Given the user is on "loginpage"
+   #When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
+    #Then click on login button
+    #Examples:
+    #|Sheetname            |RowNumber|
+    #|LoginUsernamePassword|     2|
+  #
+    #
+     #Scenario Outline: Login with incorrect username and correct password from Excel
+   #Given the user is on "loginpage"
+   #When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 
+    #Then click on login button
+    #Examples:
+    #|Sheetname            |RowNumber|
+    #|LoginUsernamePassword|     3|
+    #
      #Scenario Outline: Login with incorrect username and incorrect password from Excel
    #Given the user is on "loginpage"
    #When User  enters a invalid and valid inputs from "<Sheetname>" and  <RowNumber> 

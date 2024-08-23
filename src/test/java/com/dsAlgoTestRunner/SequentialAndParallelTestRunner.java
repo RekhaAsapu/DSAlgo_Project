@@ -29,7 +29,8 @@ import java.util.List;
 	    glue = {"Stepdefinitions", "com.dsAlgoProject.Hooks"},
 	    	    monochrome=true,
 	   plugin = {
-	    	"html:target/dsalgoproject.html"}
+	    	"html:target/dsalgoproject.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+			"timeline:test-output-thread/"}
 	  // plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 	    
 	)

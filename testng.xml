@@ -1,21 +1,27 @@
-
 <suite name="CrossbrowserTesting" parallel="methods" thread-count="5">
 
     <listeners>
         <listener class-name="Utilities.RetryListner"/>
     </listeners>
 
-   <test name="EdgeTest">
+ <test name="EdgeTest">
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
     </classes>
-        </test>
+   </test>
         <test name="ChromeTest">
 		<parameter name="browser" value="chrome"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
     </classes>
     
-  </test> <!-- Test -->
+ </test>
+ <!-- <test name="FirefoxTest">
+		<parameter name="browser" value="firefox"></parameter>
+    <classes>
+            <class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner"/>
+    </classes>
+    
+  </test> -->
 </suite> <!-- Suite -->
