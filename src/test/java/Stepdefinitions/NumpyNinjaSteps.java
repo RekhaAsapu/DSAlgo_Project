@@ -64,9 +64,12 @@ public class NumpyNinjaSteps {
 		Assert.assertEquals(actual, expected, "Title does not match");
 	}
 
-	@When("I select {string} from the subtitle")
+	@When("I select {string} from the subtitle")           
 	public void i_select_option_from_the_subtitle(String option) {
+		
+		System.out.println("i_select_option_from_the_subtitle");
 		numpyninjapage.clickonthegetstartedbutton(option);
+		System.out.println("clicked on queue");
 	}
 
 	@Then("I should be navigated to the {string}")

@@ -29,7 +29,7 @@ public class GraphSteps {
 	
 	    public GraphSteps() {	    	
 	    	this.driver = DriverManager.getDriver();
-	    	  numpyninjapage =new NumpyNinjaPage(driver);
+	        numpyninjapage =new NumpyNinjaPage(driver);
 	  		graphpage=new GraphPage(driver);
 	    	
 	    }
@@ -54,7 +54,7 @@ public class GraphSteps {
 			expected=pagename;
 			actual=graphpage.getTitle();
 			Assert.assertEquals(actual, expected,"They are not matching");
-			LoggerLoad.info("assert passed for the "+ pagename);;
+			LoggerLoad.info("assert passed for the "+ pagename);
 
 		}
 
