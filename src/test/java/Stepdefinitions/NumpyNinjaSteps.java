@@ -33,23 +33,6 @@ public class NumpyNinjaSteps {
 		this.driver = DriverManager.getDriver();
 		numpyninjapage=new NumpyNinjaPage(driver);
 	}
-	
-//	@Given("The user is on Signin page of DS Algo portal")
-//	public void the_user_is_on_signin_page_of_ds_algo_portal() {
-//	    
-//	}
-//	@When("The user enter valid {string} and {string}")
-//	public void the_user_enter_valid_and(String string, String string2) {
-//	    
-//	}
-//	@When("The user click on login button")
-//	public void the_user_click_on_login_button() {
-//	    
-//	}
-//	@Then("The user redirected to homepage")
-//	public void the_user_redirected_to_homepage() {
-//	    
-//	}
 
 
 	@When("I select {string} from the dropdown")
