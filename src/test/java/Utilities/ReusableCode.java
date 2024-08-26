@@ -25,17 +25,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.dsAlgoWebDriverManager.DriverManager;
 
 public class ReusableCode {
-	Properties prop=DriverManager.get_Properties_from_configfile();
-	WebDriver driver=DriverManager.getDriver();
-	  public void navigateTo(String pagename) {
-			String urlName = prop.getProperty(pagename);
-			driver.get(urlName);
-		}
-	   /* public void navigateTotryEditor() {
-
-			driver.get(tryEditorURL);
-
-		}*/
-	
-  
+//	Properties prop=DriverManager.get_Properties_from_configfile();
+//	WebDriver driver=DriverManager.getDriver();
+//	  public void navigateTo(String pagename) {
+//			String urlName = prop.getProperty(pagename);
+//			driver.get(urlName);
+//		}
 }

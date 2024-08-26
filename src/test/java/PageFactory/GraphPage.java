@@ -7,18 +7,16 @@ import org.openqa.selenium.support.FindBy;
 	public class GraphPage extends BasePage{
 	
 		public GraphPage(WebDriver driver)
-		{
-			
+		{		
 			super(driver);
-//			if (this.driver == null) {
-//	            throw new IllegalArgumentException("hello WebDriver cannot be null");
-//	        }
-
 		}
 		@FindBy(xpath="//a[text()='Graph Representations']")
-		private static WebElement graphrepresentationslink;
+		private  WebElement graphrepresentationslink;
 		
-		@FindBy(xpath="//textarea[@tabindex='0']")////div[@class='input']/textarea try with this later
+//		@FindBy(xpath="//textarea[@tabindex='0']")
+//		private WebElement textEditor;
+	//	div:nth-child(1) > textarea
+		@FindBy(css="div:nth-child(1) > textarea")
 		private WebElement textEditor;
 		
 		@FindBy(xpath="//button[text()='Run']")
@@ -31,36 +29,21 @@ import org.openqa.selenium.support.FindBy;
 		private WebElement actualValue;
 		
 		@FindBy(xpath="//*[@href='graph']")
-		private static WebElement graphlink;
+		private  WebElement graphlink;
 		
 		@FindBy(xpath="//a[text()='Practice Questions']")
-		private static WebElement practicelink;
-		
-//		public void clickonpracticelink()
-//		{
-//			practicelink.click();
-//		}
-
-//		public void clickongraphlink() throws InterruptedException
-//		{
-//			System.out.println("click on graph link");
-//			Thread.sleep(90);
-//			graphlink.click();
-//		}
-//		
-//		public void clickongraphrepresentationslink()
-//		{
-//			graphrepresentationslink.click();
-//		}
+		private  WebElement practicelink;
 		
 		@FindBy(xpath="//a[contains(text(),'Try here')]")
-		private static WebElement tryherebutton;
+		private  WebElement tryherebutton;
 		
 		@FindBy(xpath="//a[text()='Sign out']")
-		private static WebElement signout;
+		private  WebElement signout;
 		
 		@FindBy(xpath="//div[@class='alert alert-primary']")
-		private  static WebElement logoutmessage;
+		private   WebElement logoutmessage;
+		
+		
 		
 		public void getlogoutmessage()
 		{
@@ -73,14 +56,14 @@ import org.openqa.selenium.support.FindBy;
 		
 		public void clickontryherebutton() throws InterruptedException
 		{
-			Thread.sleep(90);
+			//Thread.sleep(90);
 			tryherebutton.click();
 		}
 		public void entertextintextEditor(String pythoncode) throws InterruptedException
 		{
-			Thread.sleep(90);
+			//Thread.sleep(90);
 			textEditor.sendKeys(pythoncode);
-			Thread.sleep(90);
+			//Thread.sleep(90);
 
 		}
 		
@@ -100,11 +83,6 @@ import org.openqa.selenium.support.FindBy;
 	        return driver.getTitle();
 	    }
 		
-		/*public void navigateTo(String pagename) {
-			String urlName = ConfigReader.geturl(pagename);
-			driver.get(urlName);
-		}*/
-	    
 	    public void clickonlink(String nameoflink) {
 	        switch (nameoflink) {
 	            case "Graphgraph":
@@ -119,12 +97,10 @@ import org.openqa.selenium.support.FindBy;
 	            case "Practice Questions":
 	                practicelink.click();
 	                break;
-	            case "signout":
-	            	signout.click();
+	            case "Sign out":
+	           	 signOutAndWaitForSignIn(signout);
 	            	break;
 	                
-	                    
-	            // Add more cases as needed
 	            default:
 	                throw new IllegalArgumentException("No such link: " + nameoflink);
 	        }

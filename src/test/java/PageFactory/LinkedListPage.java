@@ -11,40 +11,43 @@ public class LinkedListPage extends BasePage {
 	}
 
 	@FindBy(xpath = "//a[text()='Introduction']")
-	private static WebElement Introductionlink;
+	private  WebElement Introductionlink;
 
 	@FindBy(xpath = "//a[text()='Creating Linked LIst']")
-	private static WebElement CreatingLinkedLIstlink;
+	private  WebElement CreatingLinkedLIstlink;
 
 	@FindBy(xpath = "//a[text()='Types of Linked List']")
-	private static WebElement TypesofLinkedListlink;
+	private  WebElement TypesofLinkedListlink;
 
 	@FindBy(xpath = "//a[text()='Implement Linked List in Python']")
-	private static WebElement ImplementLinkedListinPythonlink;
+	private  WebElement ImplementLinkedListinPythonlink;
 
 	@FindBy(xpath = "//a[text()='Traversal']")
-	private static WebElement Traversallink;
+	private  WebElement Traversallink;
 
 	@FindBy(xpath = "//a[text()='Insertion']")
-	private static WebElement Insertionlink;
+	private  WebElement Insertionlink;
 
 	@FindBy(xpath = "//a[text()='Deletion']")
-	private static WebElement Deletionlink;
+	private  WebElement Deletionlink;
 
-	@FindBy(xpath = "//textarea[@tabindex='0']") //// div[@class='input']/textarea try with this later
-	private WebElement textEditor;
+//	@FindBy(xpath = "//textarea[@tabindex='0']") 
+//	private WebElement textEditor;
 
 	@FindBy(xpath = "//button[text()='Run']")
 	private WebElement runButton;
 
-	@FindBy(xpath = "//*[@id='output']")
-	private WebElement actualValue;
+//	@FindBy(xpath = "//*[@id='output']")
+//	private WebElement actualValue;
 
 	@FindBy(xpath = "//a[text()='Practice Questions']")
-	private static WebElement practicelink;
+	private  WebElement practicelink;
 
 	@FindBy(xpath="//a[contains(text(),'Try here')]")
-	private static WebElement tryherebutton;
+	private  WebElement tryherebutton;
+	
+	@FindBy(xpath="//a[text()='Sign out']")
+	private  WebElement signout;
 	
 	public void selectonlink(String nameoflink) {
 		switch (nameoflink) {
@@ -75,6 +78,9 @@ public class LinkedListPage extends BasePage {
 		 case "Try Here":
          	tryherebutton.click();
          	break;
+		 case "Sign out":
+        	 signOutAndWaitForSignIn(signout);
+	         	break;
 		default:
 			throw new IllegalArgumentException("No such link: " + nameoflink);
 		}

@@ -38,8 +38,8 @@ public class CommonbackgroundSteps {
 
 	@When("the user enters a valid username and password")
 	public void the_user_enters_a_valid_username_and_password() throws InterruptedException {
-		loginpage.enterusername(prop.getProperty("username"));
-		loginpage.enterpassword(prop.getProperty("password"));
+		loginPage.enterusername(prop.getProperty("username"));
+		loginPage.enterpassword(prop.getProperty("password"));
 	}
 
 	@Then("clicks the login button")
@@ -51,7 +51,6 @@ public class CommonbackgroundSteps {
 	}
 	@Given("the user is on {string}")
 	public void the_user_is_on(String pagename) {
-		//String page_name = pagename.replaceAll("\\s+", "");
 		basepage.navigateTo(pagename);
 		LoggerLoad.info("User is on "+pagename+" page");
 	}
