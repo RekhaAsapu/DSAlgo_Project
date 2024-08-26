@@ -16,118 +16,60 @@ public class TreePage extends BasePage {
 	}
 	
 	@FindBy(xpath="//a[text()='Overview of Trees']")
-	private static WebElement OverviewofTrees;
-	
-//	public void clickonOverviewofTrees()
-//	{
-//		OverviewofTrees.click();
-//	}
+	private  WebElement OverviewofTrees;
 	
 	@FindBy(xpath="//a[text()='Terminologies']")
-	private static WebElement Terminologies;
-	
-//	public void clickonTerminologies()
-//	{
-//		Terminologies.click();
-//	}
-//	
-	
+	private  WebElement Terminologies;	
+
 	@FindBy(xpath="//a[text()='Types of Trees']")
-	private static WebElement TypesofTrees;
-//	public void clickonTypesofTrees()
-//	{
-//		TypesofTrees.click();
-//	}
-//	
+	private  WebElement TypesofTrees;
+
 	@FindBy(xpath="//a[text()='Tree Traversals']")
-	private static WebElement TreeTraversals;
-//	public void clickonTreeTraversals()
-//	{
-//		TreeTraversals.click();
-//	}
+	private  WebElement TreeTraversals;
 	
 	@FindBy(xpath="//a[text()='Traversals-Illustration']")
-	private static WebElement TraversalsIllustration;
-//	public void clickonTraversalsIllustration()
-//	{
-//		TraversalsIllustration.click();
-//	}
-	
+	private  WebElement TraversalsIllustration;
+
 	@FindBy(xpath="//a[text()='Binary Trees']")
-	private static WebElement BinaryTrees;
-//	public void clickonBinaryTrees()
-//	{
-//		BinaryTrees.click();
-//	}
+	private  WebElement BinaryTrees;
 	
 	@FindBy(xpath="//a[text()='Types of Binary Trees']")
-	private static WebElement TypesofBinaryTrees;
-//	public void clickonTypesofBinaryTrees()
-//	{
-//		TypesofBinaryTrees.click();
-//	}
+	private  WebElement TypesofBinaryTrees;
+
 	
 	@FindBy(xpath="//a[text()='Implementation in Python']")
-	private static WebElement ImplementationinPython;
-//	public void clickonImplementationinPython()
-//	{
-//		ImplementationinPython.click();
-//	}
-//	
+	private  WebElement ImplementationinPython;
+
 	@FindBy(xpath="//a[text()='Binary Tree Traversals']")
-	private static WebElement BinaryTreeTraversals;
-//	public void clickonBinaryTreeTraversals()
-//	{
-//		BinaryTreeTraversals.click();
-//	}
-	
+	private  WebElement BinaryTreeTraversals;
+
 	@FindBy(xpath="//a[text()='Implementation of Binary Trees']")
-	private static WebElement ImplementationofBinaryTrees;
-//	public void clickonImplementationofBinaryTrees()
-//	{
-//		ImplementationofBinaryTrees.click();
-//	}
-//	
+	private  WebElement ImplementationofBinaryTrees;
+
 	@FindBy(xpath="//a[text()='Applications of Binary trees']")
-	private static WebElement ApplicationsofBinarytrees;
-//	public void clickonApplicationsofBinarytrees()
-//	{
-//		ApplicationsofBinarytrees.click();
-//	}
+	private  WebElement ApplicationsofBinarytrees;
 
 	@FindBy(xpath="//a[text()='Binary Search Trees']")
-	private static WebElement BinarySearchTrees;
-//	public void clickonBinarySearchTrees()
-//	{
-//		BinarySearchTrees.click();
-//	}
+	private  WebElement BinarySearchTrees;
 
 	@FindBy(xpath="//a[text()='Implementation Of BST']")
-	private static WebElement ImplementationOfBST;
-	//public void clickonImplementationOfBST()
-//	{
-//		ImplementationOfBST.click();
-//	}
+	private  WebElement ImplementationOfBST;
+
 	@FindBy(xpath="//a[contains(text(),'Try here')]")
-	private static WebElement tryherebutton;
-	//public void clickontryherebutton() throws InterruptedException
-//	{
-//		Thread.sleep(90000);
-//		tryherebutton.click();
-//	}
+	private  WebElement tryherebutton;
+
 	@FindBy(xpath="//a[@href='/tree/practice']")
-	private static WebElement practicelink;
+	private  WebElement practicelink;
 	
-//	public void clickonpracticelink()
-//	{
-//		practicelink.click();
-//	}
 
 	public String gettreepageTitle() {
 		System.out.println(driver.getTitle());
 		return driver.getTitle();
 		
 	}
+	
+	@FindBy(xpath="//a[text()='Sign out']")
+	private  WebElement signout;
 	
 	public void clickonlink(String nameoflink) {
         switch (nameoflink) {
@@ -176,10 +118,10 @@ public class TreePage extends BasePage {
                 case "Practice Questions":
                 practicelink.click();
                 break;
-                
-                    
-            // Add more cases as needed
-            default:
+                case "Sign out":
+               	 signOutAndWaitForSignIn(signout);
+                 	break;
+               default:
                 throw new IllegalArgumentException("No such link: " + nameoflink);
         }
 	}

@@ -1,6 +1,5 @@
 package com.dsAlgoWebDriverManager;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,8 +8,16 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ThreadGuard;
+import org.testng.annotations.Parameters;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverManager {
 	
 	
@@ -18,18 +25,12 @@ public class DriverManager {
 	
 	public static InputStream input;
 	private static String browserType;
-	//public static FileOutputStream output;
 	 
 	static {
     	prop=get_Properties_from_configfile();
 
 		
 	}
-//
-//    public static String getProperty(String key) {
-//        return prop.getProperty(key);
-//    }
-
 
 	private static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>();
 
@@ -38,15 +39,31 @@ public class DriverManager {
     }
 
     public static void initilizedriver(String browser) {
+
         if (browser.equalsIgnoreCase("chrome")) {
-        //	WebDriverManager.chromedriver().setup(); 
-        	tldriver.set(new ChromeDriver());
+        	ChromeOptions options = new ChromeOptions();
+        	options.addArguments("--headless");
+        	options.addArguments("--disable-extensions");
+        	options.addArguments("--disable-popup-blocking");
+        	options.addArguments("--disable-gpu");
+        	tldriver.set(new ChromeDriver(options));
         } else if (browser.equalsIgnoreCase("firefox")) {
-        	tldriver.set(new FirefoxDriver());
+        	FirefoxOptions options = new FirefoxOptions();
+        	options.addArguments("--headless");
+        	options.addArguments("--disable-extensions");
+        	options.addArguments("--disable-popup-blocking");
+        	options.addArguments("--disable-gpu");
+        	tldriver.set(new FirefoxDriver(options));
         }
         	else if (browser.equalsIgnoreCase("edge")) {
-            	tldriver.set(new EdgeDriver());
-        } else {
+        		EdgeOptions options = new EdgeOptions();
+        		options.addArguments("--headless");
+            	options.addArguments("--disable-extensions");
+            	options.addArguments("--disable-popup-blocking");
+            	options.addArguments("--disable-gpu");
+            	tldriver.set(new EdgeDriver(options));
+        } 
+        	else {
             throw new IllegalArgumentException("Browser type not supported");
         }
     }
@@ -61,7 +78,6 @@ public class DriverManager {
 	    public static Properties getproperties() {
 	        if (prop == null) {
 	            prop = get_Properties_from_configfile();
-	            System.out.println("i'm in grt proprties++++++++++++++++++++++++++++++++++++++++");// Ensure properties are loaded
 	        }
 	        return prop;
 	    }

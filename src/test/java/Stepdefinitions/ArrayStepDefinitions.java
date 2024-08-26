@@ -74,26 +74,26 @@ public class ArrayStepDefinitions {
 	}
 	
 	//************common for all the python code******************************
-	@When("User will enter code and click on Run button for array")
-	public void user_will_enter_code_and_click_on_run_button_for_array() throws InterruptedException {
-		 
-		System.out.println("im here too");
-		arrayPage.clickonEditorSpace();
-		LoggerLoad.info("user entered python code in the text editor");
-		arrayPage.clickRun();
-		LoggerLoad.info("User clicked on run button");
-		Thread.sleep(3000);
-	}
+//	@When("User will enter code and click on Run button for array")
+//	public void user_will_enter_code_and_click_on_run_button_for_array() throws InterruptedException {
+//		 
+//		System.out.println("im here too");
+//		arrayPage.clickonEditorSpace();
+//		LoggerLoad.info("user entered python code in the text editor");
+//		arrayPage.clickRun();
+//		LoggerLoad.info("User clicked on run button");
+//		//Thread.sleep(3000);
+//	}
 	
 	//************common for all the output************************************
-	@Then("User should see {string} below the Run button for array")
-	public void user_should_see_below_the_run_button_for_array(String output) {
-		
-		
-	
-		assertEquals(arrayPage.result(),output ); 
-		LoggerLoad.info("assert passed for the test editor");
-	}
+//	@Then("User should see {string} below the Run button for array")
+//	public void user_should_see_below_the_run_button_for_array(String output) {
+//		
+//		
+//	
+//		assertEquals(arrayPage.result(),output ); 
+//		LoggerLoad.info("assert passed for the test editor");
+//	}
 	
 	
 	

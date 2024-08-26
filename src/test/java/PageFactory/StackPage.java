@@ -50,8 +50,8 @@ import org.openqa.selenium.WebDriver;
 		@FindBy(xpath= "//a[@href='/tryEditor']")
 		WebElement TryEdt_btn;
 		
-		@FindBy(xpath="//textarea[@tabindex='0']")
-		WebElement typeeditor_space;
+//		@FindBy(xpath="//textarea[@tabindex='0']")
+//		WebElement typeeditor_space;
 		
 		@FindBy(xpath="//button[contains(text(),'Run')]")
 		WebElement run_btn;
@@ -89,12 +89,12 @@ import org.openqa.selenium.WebDriver;
 			TryEdt_btn.click();
 		}
 	
-		public void clickonEditorSpace() {
-			
-			String pythonCode = "print(\"something\")";
-			typeeditor_space.sendKeys(pythonCode);
-			
-		}
+//		public void clickonEditorSpace() {
+//			
+//			String pythonCode = "print(\"something\")";
+//			typeeditor_space.sendKeys(pythonCode);
+//			
+//		}
 		
 		public void clickRun() {
 			 run_btn.click();

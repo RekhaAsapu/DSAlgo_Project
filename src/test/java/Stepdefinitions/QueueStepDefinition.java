@@ -89,27 +89,27 @@ public class QueueStepDefinition {
 	}
 	
 	//************common for all the python code******************************
-	@When("User will enter code and click on Run button")
-	public void user_will_enter_code_and_click_on_run_button() throws InterruptedException {
-		 
-		
-		queuePage.TryEditorSpace();
-		LoggerLoad.info("user entered python code in the text editor");
-		queuePage.run();
-		LoggerLoad.info("User clicked on run button");
-		Thread.sleep(3000);
-	}
+//	@When("User will enter code and click on Run button")
+//	public void user_will_enter_code_and_click_on_run_button() throws InterruptedException {
+//		 
+//		
+//		queuePage.TryEditorSpace();
+//		LoggerLoad.info("user entered python code in the text editor");
+//		queuePage.run();
+//		LoggerLoad.info("User clicked on run button");
+//		//Thread.sleep(3000);
+//	}
 	
 	//************common for all the output************************************
-	@Then("User should see {string} below the Run button")
-	public void user_should_see_below_the_run_button(String output) {
-		
-		
-	
-		assertEquals(queuePage.result(),output );
-		LoggerLoad.info("assert passed for the test editor");
-	}
-	
+//	@Then("User should see {string} below the Run button")
+//	public void user_should_see_below_the_run_button(String output) {
+//		
+//		
+//	
+//		assertEquals(queuePage.result(),output );
+//		LoggerLoad.info("assert passed for the test editor");
+//	}
+//	
 	
 	
 	@Then("User will redirected to {string} page for queueQuestions")

@@ -1,22 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="CrossbrowserTesting" parallel="methods" thread-count="5">
+<suite name="CrossbrowserTesting" parallel="none" thread-count="10">
 
-	<listeners>
-		<listener class-name="Utilities.RetryListner" />
-	</listeners>
+<!--<suite name="CrossbrowserTesting">
+-->
+    <listeners>
+        <listener class-name="Utilities.RetryListner"/>
+    </listeners>
 
-	<test name="EdgeTest">
+<test name="EdgeTest">
 		<parameter name="browser" value="edge"></parameter>
-		<classes>
-			<class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner" />
-		</classes>
-	</test>
-	<test name="ChromeTest">
+    <classes>
+            <class name="com.dsAlgoTestRunner.TestRunner"/>
+    </classes>
+   </test>
+        <test name="ChromeTest">
 		<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class name="com.dsAlgoTestRunner.SequentialAndParallelTestRunner" />
-		</classes>
-
-	</test>
-</suite>
+    <classes>
+            <class name="com.dsAlgoTestRunner.TestRunner"/>
+    </classes>
+    
+ </test>
+  <!--<test name="FirefoxTest">
+		<parameter name="browser" value="firefox"></parameter>
+    <classes>
+            <class name="com.dsAlgoTestRunner.TestRunner"/>
+    </classes>
+    </test>-->
+  <test name="RerunFailedTests">
+    <classes>
+            <class name="Utilities.RetryforFailedScenarios"/>
+    </classes>
+  </test>
+</suite> <!-- Suite -->

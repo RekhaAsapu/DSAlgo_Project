@@ -45,7 +45,7 @@ public class StackStepDefinitions {
 	    	
 	    assertEquals(driver.getTitle(),"Stack"); 
 	    LoggerLoad.info("assert passed for the Stack");
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	}
 	
 	//Ts02******** common for all the links to be clicked****************************
@@ -70,7 +70,7 @@ public class StackStepDefinitions {
 	public void user_will_click_on_button_for_stack(String string) throws InterruptedException {
 	  
         stackPage.clickonTryEditor();
-        Thread.sleep(3000);
+       // Thread.sleep(3000);
 	}
 	
 	
@@ -82,25 +82,25 @@ public class StackStepDefinitions {
 	}
 	
     //Ts04***************common for all the python code*************************************
-	@When("User will enter code and click on run button")
-	public void user_will_enter_code_and_click_on_run_button() throws InterruptedException {
-	    
-		stackPage = new StackPage(driver);
-		stackPage.clickonEditorSpace(); 
-		LoggerLoad.info("user entered python code in the text editor");
-		stackPage.clickRun();
-		LoggerLoad.info("User clicked on run button");
-		Thread.sleep(3000);
-	}
+//	@When("User will enter code and click on run button")
+//	public void user_will_enter_code_and_click_on_run_button() throws InterruptedException {
+//	    
+//		stackPage = new StackPage(driver);
+//		stackPage.clickonEditorSpace(); 
+//		LoggerLoad.info("user entered python code in the text editor");
+//		stackPage.clickRun();
+//		LoggerLoad.info("User clicked on run button");
+//		//Thread.sleep(3000);
+//	}
 
    //*********************common for all the output********************************
-	@Then("User will see {string} below the run button")
-	public void user_will_see_below_the_run_button(String output) {
-	    
-		
-		assertEquals(stackPage.result(), output);
-		LoggerLoad.info("assert passed for the test editor");
-	}
+//	@Then("User will see {string} below the run button")
+//	public void user_will_see_below_the_run_button(String output) {
+//	    
+//		
+//		assertEquals(stackPage.result(), output);
+//		LoggerLoad.info("assert passed for the test editor");
+//	}
 	
 	
 

@@ -50,8 +50,8 @@ public class QueuePage extends BasePage {
 	@FindBy(xpath = "//a[@href=\"/tryEditor\"]")
 	WebElement tryhereBtn;
 	
-	@FindBy(xpath = "//textarea[@tabindex='0']")
-	WebElement typeEditorSpace;
+//	@FindBy(xpath = "//textarea[@tabindex='0']")
+//	WebElement typeEditorSpace;
 	
 	@FindBy(xpath = "//button[@type=\"button\"]")
 	WebElement runBtn;
@@ -97,12 +97,12 @@ public class QueuePage extends BasePage {
 		tryhereBtn.click();
 	}
 	
-	public void TryEditorSpace() {
-		
-		String pythonCode = "print(\"something\")";
-		typeEditorSpace.sendKeys(pythonCode);
-		
-	}
+//	public void TryEditorSpace() {
+//		
+//		String pythonCode = "print(\"something\")";
+//		typeEditorSpace.sendKeys(pythonCode);
+//		
+//	}
 	
 	public void run() {
 		

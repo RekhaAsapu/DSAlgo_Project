@@ -1,4 +1,6 @@
 /target/
-/allure-results/
+/test output/
 /test-output/
-/src/test/resources/Screenshots/
+/logs/
+/test-output-thread/
+/allure-results/

@@ -16,8 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class loginpage extends BasePage {
 	NumpyNinjaPage numpyninjapage;
-	// private static WebDriverWait wait;
-	// private WebDriverWait wait;
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	public loginpage(WebDriver driver) {
@@ -30,19 +28,19 @@ public class loginpage extends BasePage {
 	}
 
 	@FindBy(xpath = "//input[@name='username']")
-	private static WebElement userName;
+	private  WebElement userName;
 
 	@FindBy(xpath = "//input[@name='password']")
-	private static WebElement passWord;
+	private  WebElement passWord;
 
 	@FindBy(xpath = "//input[@type='submit']")
-	private static WebElement login;
+	private  WebElement login;
 
 	@FindBy(xpath = "//div[contains(text(), 'Invalid Username')]")
-	private static WebElement errorMessageElement;
+	private  WebElement errorMessageElement;
 
 	@FindBy(xpath = "//button[contains(text(),'Get Started')]")
-	private static WebElement GetStartedbutton;
+	private  WebElement GetStartedbutton;
 
 	public String getrequiredfielderrormessage(WebElement activeElement) {
 		activeElement = driver.switchTo().activeElement();
@@ -69,23 +67,23 @@ public class loginpage extends BasePage {
 			return messageStr;
 	}
 
-	public static void clickonGetStartedbutton() {
+	public  void clickonGetStartedbutton() {
 		GetStartedbutton.click();
 	}
 
-	public static void enterusername(String username) throws InterruptedException {
+	public  void enterusername(String username) throws InterruptedException {
 		userName.click();
-		Thread.sleep(90);
+		//Thread.sleep(90);
 		wait.until(ExpectedConditions.visibilityOf(userName));
 
 		userName.sendKeys(username);
 		userName.sendKeys(Keys.TAB);
-		Thread.sleep(99);
+		//Thread.sleep(99);
 	}
 
-	public static void enterpassword(String password) throws InterruptedException {
+	public  void enterpassword(String password) throws InterruptedException {
 		passWord.clear();
-		Thread.sleep(90);
+		//Thread.sleep(90);
 		wait.until(ExpectedConditions.visibilityOf(passWord));
 		passWord.sendKeys(password);
 	}
@@ -118,9 +116,4 @@ public class loginpage extends BasePage {
 		}
 	}
 }
-/*
- * public void clickSomeElement(WebElement element) { getSomeElement(element);
- * int attempts = 0; while (attempts < 3) { try { element.click(); break; }
- * catch (StaleElementReferenceException e) { element = getSomeElement();
- * attempts++; } }
- */
+
