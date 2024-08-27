@@ -1,5 +1,5 @@
  Feature: Graph Functionality
- 
+
    Background: Successful login with valid credentials
     Given the user navigates to the login page
     When the user enters a valid username and password
@@ -63,4 +63,4 @@
     Then The user should land on the "NumpyNinja" page in graphsection
     
   
-    
+  

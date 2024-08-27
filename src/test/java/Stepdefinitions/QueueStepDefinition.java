@@ -2,11 +2,8 @@ package Stepdefinitions;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 
-import com.dsAlgoProject.Hooks.dsAlgoHooks;
 import com.dsAlgoWebDriverManager.DriverManager;
 
 import PageFactory.NumpyNinjaPage;
@@ -32,16 +29,7 @@ public class QueueStepDefinition {
 		
 	}
 	
-	//Ts01  Get Started button on home Page for Queue
-//	@When("User will click on Queue {string} button")
-//	public void user_will_click_on_queue_button(String link) throws InterruptedException {
-//	    
-//		//System.out.println(" im here ");
-//		queuePage.getStartedQueue();
-//		//LoggerLoad.info("The user clicked on the getStartedQueue()");	
-//		
-//	}
-//	
+	
 	@Then("User will redirected to the Queue over view  page")
 	public void user_will_redirected_to_the_queue_over_view_page() {
 	    

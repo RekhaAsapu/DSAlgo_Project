@@ -1,12 +1,15 @@
 <suite name="CrossbrowserTesting" parallel="methods" thread-count="10">
 
+
 <!--<suite name="CrossbrowserTesting">
 -->
     <listeners>
         <listener class-name="Utilities.RetryListner"/>
     </listeners>
 
+
 <!--<test name="EdgeTest">
+
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>

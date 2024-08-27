@@ -31,14 +31,7 @@ public class StackStepDefinitions {
 	
 	}
 	
-//	//Ts1
-//	@When("User will click on {string} button for StackPage")
-//	public void user_will_click_on_button_for_stack_page(String string) throws InterruptedException {
-//		
-//		stackPage.clickOnGetStarted();
-//		LoggerLoad.info("The user clicked on the clickOnGetStarted()");
-//		Thread.sleep(3000);
-//	}
+
 
 	@Then("User will redirected to StackPage")
 	public void user_will_redirected_to_stack_page() throws InterruptedException {
@@ -80,27 +73,6 @@ public class StackStepDefinitions {
 	    
 		assertEquals(driver.getTitle(), "Assessment");
 	}
-	
-    //Ts04***************common for all the python code*************************************
-//	@When("User will enter code and click on run button")
-//	public void user_will_enter_code_and_click_on_run_button() throws InterruptedException {
-//	    
-//		stackPage = new StackPage(driver);
-//		stackPage.clickonEditorSpace(); 
-//		LoggerLoad.info("user entered python code in the text editor");
-//		stackPage.clickRun();
-//		LoggerLoad.info("User clicked on run button");
-//		//Thread.sleep(3000);
-//	}
-
-   //*********************common for all the output********************************
-//	@Then("User will see {string} below the run button")
-//	public void user_will_see_below_the_run_button(String output) {
-//	    
-//		
-//		assertEquals(stackPage.result(), output);
-//		LoggerLoad.info("assert passed for the test editor");
-//	}
 	
 	
 

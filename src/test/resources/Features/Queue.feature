@@ -16,10 +16,6 @@ Feature: Queue
     When User will click on "Try here" button
     Then User will redirected to "Assessment" page with Run button
 
-  #Scenario: TS03 - validating the links
-    #Given the user is on "assessment"
-    #When User will enter code and click on Run button
-    #Then User should see "something" below the Run button
 
   Scenario: TS04 - Test the Hyperinks in the Queue over view page
     Given the user is on "implQueueinPython"
@@ -31,10 +27,6 @@ Feature: Queue
     When User will click on "Try here" button
     Then User will redirected to "Assessment" page with Run button
 
-  #Scenario: TS06 - testing the python code
-    #Given the user is on "assessment"
-    #When User will enter code and click on Run button
-    #Then User should see "something" below the Run button
 
   Scenario: TS07 - Test the Hyperinks in the Queue over view page
     Given the user is on "implCollecDequeinPython"
@@ -46,10 +38,6 @@ Feature: Queue
     When User will click on "Try here" button
     Then User will redirected to "Assessment" page with Run button
 
-  #Scenario: TS09 - testing the python code
-    #Given the user is on "assessment"
-    #When User will enter code and click on Run button
-    #Then User should see "something" below the Run button
 
   Scenario: TS10 - Test the Queue Operations in Queue OVerview page
     Given the user is on "implUsingArray"
@@ -61,10 +49,6 @@ Feature: Queue
     When User will click on "Try here" button
     Then User will redirected to "Assessment" page with Run button
 
-  #Scenario: TS12 - testing the python code
-    #Given the user is on "assessment"
-    #When User will enter code and click on Run button
-    #Then User should see "something" below the Run button
 
   Scenario: TS13 - Validate the Practice Questions HyperLink
     Given the user is on "queueOper"

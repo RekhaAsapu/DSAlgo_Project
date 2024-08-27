@@ -36,8 +36,7 @@
 			<artifactId>maven-resources-plugin</artifactId>
 			<version>3.3.1</version>
 		</dependency>
-
-
+		
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -110,7 +109,6 @@
 			<artifactId>poi-scratchpad</artifactId>
 			<version>5.3.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
@@ -131,15 +129,7 @@
 			<artifactId>xmlbeans</artifactId>
 			<version>5.2.1</version>
 		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber-jvm -->
-		<!--<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-cucumber-jvm</artifactId>
-			<version>2.20.1</version>
-		</dependency>-->
-
-
+		
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -153,6 +143,15 @@
 			<artifactId>extentreports-cucumber7-adapter</artifactId>
 			<version>1.14.0</version>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.17.2</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 
 		<dependency>
 
@@ -176,105 +175,10 @@
 			<version>2.17.2</version>
 
 		</dependency>
-<!--		 https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting 
-<dependency>
-    <groupId>net.masterthought</groupId>
-    <artifactId>cucumber-reporting</artifactId>
-    <version>5.8.2</version>
-</dependency>-->
-
 
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- <plugin>
-            <groupId>net.masterthought</groupId>
-            <artifactId>maven-cucumber-reporting</artifactId>
-            <version>5.6.0</version>
-            <executions>
-               <execution>
-                  <id>execution</id>
-                  <phase>verify</phase>
-                  <goals>
-                     <goal>generate</goal>
-                  </goals>
-                  <configuration>
-                     <projectName>DsAlgoProject</projectName>
-                      optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified 
-                     <skip>false</skip>
-                      output directory for the generated report 
-                     <outputDirectory>${project.build.directory}</outputDirectory>
-                      optional, defaults to outputDirectory if not specified 
-                     <inputDirectory>${project.build.directory}</inputDirectory>
-                     <jsonFiles>
-                         supports wildcard or name pattern 
-                        <param>**/*.json</param>
-                     </jsonFiles>
-                      optional, defaults to outputDirectory if not specified 
-                                        <classificationDirectory>${project.build.directory}/classifications</classificationDirectory> 
-                                        <classificationFiles> 
-                                           supports wildcard or name pattern 
-                                           <param>sample.properties</param> 
-                                           <param>other.properties</param> 
-                                        </classificationFiles> 
-                         <parallelTesting>false</parallelTesting>
-                      optional, set true to group features by its Ids 
-                     <mergeFeaturesById>false</mergeFeaturesById>
-                      optional, set true to get a final report with latest results of the same test from different test runs 
-                     <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
-                      optional, set true to fail build on test failures 
-                     <checkBuildResult>false</checkBuildResult>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
--->
-		<!--	<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.8.2</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>CucumberFrameworkk</projectName>
-							 <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                <cucumberOutput>
-                    ${project.build.directory}/cucumber.json
-                </cucumberOutput>
-                 <jsonFiles>
-                            ${project.build.directory}/cucumber.json
-                        </jsonFiles>
-                                <parallelTesting>false</parallelTesting>
-
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>-->
-					<!--<plugin>
-    <groupId>net.masterthought</groupId>
-    <artifactId>maven-cucumber-reporting</artifactId>
-    <version>5.8.2</version>
-    <executions>
-        <execution>
-            <id>execution</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <projectName>CucumberFrameworkk</projectName>
-                <outputDirectory>target/cucumber-html-reports</outputDirectory>
-                <cucumberOutput>target/cucumber.json,target/cucumber-rerun.json</cucumberOutput>
-                <parallelTesting>false</parallelTesting>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>-->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -332,41 +236,7 @@
         </execution>
     </executions>
 </plugin>-->
-        	
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
 
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
-<!--<systemProperties>
-	<property>
-		<name>allure.results.directory</name>
-		<value> C:\ProgramData\Jenkins\.jenkins\workspace\newjenkinsjob\allure-results</value>
-	</property>
-</systemProperties>-->
-					<properties>
-						<dataproviderthreadcount>30</dataproviderthreadcount>
-						<parallel>methods</parallel>
-						<threadcount>7</threadcount> 
-						 </properties>
-				</configuration>
-
-			</plugin>
 
         	</plugins>
 	</build>
