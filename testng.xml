@@ -8,13 +8,13 @@
     </listeners>
 
 
-<test name="EdgeTest">
+<!--<test name="EdgeTest">
 
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
     </classes>
-   </test>
+   </test>-->
         <test name="ChromeTest">
 		<parameter name="browser" value="chrome"></parameter>
     <classes>
