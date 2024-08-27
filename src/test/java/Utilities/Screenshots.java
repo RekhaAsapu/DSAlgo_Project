@@ -23,21 +23,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Screenshots {
 	
 
-	public static String takeScreenshot(WebDriver driver, String screenshotName) {
-        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        
-        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        
-        String destFilePath = System.getProperty("user.dir")+"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
-        
-        File destFile = new File(destFilePath);
-        
-        try {
-            FileUtils.copyFile(srcFile, destFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return destFilePath;
-    }
-	
+//	public static String takeScreenshot(WebDriver driver, String screenshotName) {
+//        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        
+//        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+//        
+//        String destFilePath = System.getProperty("user.dir")+"\\src\\test\\resources\\Screenshots\\" + screenshotName + "_" + timestamp + ".png";
+//        
+//        File destFile = new File(destFilePath);
+//        
+//        try {
+//            FileUtils.copyFile(srcFile, destFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return destFilePath;
+//    }
+//	
 }

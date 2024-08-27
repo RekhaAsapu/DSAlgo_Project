@@ -176,12 +176,60 @@
 			<version>2.17.2</version>
 
 		</dependency>
+<!--		 https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting 
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.8.2</version>
+</dependency>-->
+
 
 	</dependencies>
 	<build>
 		<plugins>
-
-			<!--<plugin>
+			<!-- <plugin>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.6.0</version>
+            <executions>
+               <execution>
+                  <id>execution</id>
+                  <phase>verify</phase>
+                  <goals>
+                     <goal>generate</goal>
+                  </goals>
+                  <configuration>
+                     <projectName>DsAlgoProject</projectName>
+                      optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified 
+                     <skip>false</skip>
+                      output directory for the generated report 
+                     <outputDirectory>${project.build.directory}</outputDirectory>
+                      optional, defaults to outputDirectory if not specified 
+                     <inputDirectory>${project.build.directory}</inputDirectory>
+                     <jsonFiles>
+                         supports wildcard or name pattern 
+                        <param>**/*.json</param>
+                     </jsonFiles>
+                      optional, defaults to outputDirectory if not specified 
+                                        <classificationDirectory>${project.build.directory}/classifications</classificationDirectory> 
+                                        <classificationFiles> 
+                                           supports wildcard or name pattern 
+                                           <param>sample.properties</param> 
+                                           <param>other.properties</param> 
+                                        </classificationFiles> 
+                         <parallelTesting>false</parallelTesting>
+                      optional, set true to group features by its Ids 
+                     <mergeFeaturesById>false</mergeFeaturesById>
+                      optional, set true to get a final report with latest results of the same test from different test runs 
+                     <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+                      optional, set true to fail build on test failures 
+                     <checkBuildResult>false</checkBuildResult>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+-->
+		<!--	<plugin>
 				<groupId>net.masterthought</groupId>
 				<artifactId>maven-cucumber-reporting</artifactId>
 				<version>5.8.2</version>
@@ -261,9 +309,42 @@
             </configuration>
         </plugin>
 			
+	<!--<plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.8.2</version>
+    <executions>
+        <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <jsonFiles>
+                        <param>target/cucumber-reports/Cucumber.json</param>
+                        </jsonFiles>
+                        <reportOutputDirectory>${project.build.directory}/cucumber-html-reports</reportOutputDirectory>
+                        <reportTitle>Cucumber HTML Report</reportTitle>
+                        <parallelTesting>false</parallelTesting>
+                        <sortByExecutionOrder>true</sortByExecutionOrder>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>-->
+        	
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 			
-			
-	<!--		<plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
@@ -272,12 +353,12 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-<systemProperties>
+<!--<systemProperties>
 	<property>
 		<name>allure.results.directory</name>
 		<value> C:\ProgramData\Jenkins\.jenkins\workspace\newjenkinsjob\allure-results</value>
 	</property>
-</systemProperties>
+</systemProperties>-->
 					<properties>
 						<dataproviderthreadcount>30</dataproviderthreadcount>
 						<parallel>methods</parallel>
@@ -285,63 +366,8 @@
 						 </properties>
 				</configuration>
 
-			</plugin>-->
+			</plugin>
 
-			
-			 <!-- Allure Maven Plugin -->
-       <!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>  Use the latest version 
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>post-integration-test</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-		</plugins>
-	</build>-->
-	
-	<!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                    <configuration>
-                        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                        <reportDirectory>${project.build.directory}/site/allure-maven-plugin</reportDirectory>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>-->
-        <!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>  Replace with the latest version 
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                    <configuration>
-                        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                        <reportDirectory>${project.build.directory}/site/allure-maven-plugin</reportDirectory>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>-->
         	</plugins>
 	</build>
 </project>
