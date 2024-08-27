@@ -36,6 +36,7 @@
 			<artifactId>maven-resources-plugin</artifactId>
 			<version>3.3.1</version>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -128,13 +129,7 @@
 			<artifactId>xmlbeans</artifactId>
 			<version>5.2.1</version>
 		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber-jvm -->
-		<!--<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-cucumber-jvm</artifactId>
-			<version>2.20.1</version>
-		</dependency>-->
+		
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -185,53 +180,6 @@
 	<build>
 		<plugins>
 
-			<!--<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.8.2</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>CucumberFrameworkk</projectName>
-							 <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                <cucumberOutput>
-                    ${project.build.directory}/cucumber.json
-                </cucumberOutput>
-                 <jsonFiles>
-                            ${project.build.directory}/cucumber.json
-                        </jsonFiles>
-                                <parallelTesting>false</parallelTesting>
-
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>-->
-					<!--<plugin>
-    <groupId>net.masterthought</groupId>
-    <artifactId>maven-cucumber-reporting</artifactId>
-    <version>5.8.2</version>
-    <executions>
-        <execution>
-            <id>execution</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <projectName>CucumberFrameworkk</projectName>
-                <outputDirectory>target/cucumber-html-reports</outputDirectory>
-                <cucumberOutput>target/cucumber.json,target/cucumber-rerun.json</cucumberOutput>
-                <parallelTesting>false</parallelTesting>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>-->
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -265,87 +213,31 @@
             </configuration>
         </plugin>
 			
-			
-			
-	<!--		<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
+	<!--<plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.8.2</version>
+    <executions>
+        <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <jsonFiles>
+                        <param>target/cucumber-reports/Cucumber.json</param>
+                        </jsonFiles>
+                        <reportOutputDirectory>${project.build.directory}/cucumber-html-reports</reportOutputDirectory>
+                        <reportTitle>Cucumber HTML Report</reportTitle>
+                        <parallelTesting>false</parallelTesting>
+                        <sortByExecutionOrder>true</sortByExecutionOrder>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>-->
 
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
-<systemProperties>
-	<property>
-		<name>allure.results.directory</name>
-		<value> C:\ProgramData\Jenkins\.jenkins\workspace\newjenkinsjob\allure-results</value>
-	</property>
-</systemProperties>
-					<properties>
-						<dataproviderthreadcount>30</dataproviderthreadcount>
-						<parallel>methods</parallel>
-						<threadcount>7</threadcount> 
-						 </properties>
-				</configuration>
 
-			</plugin>-->
-
-			
-			 <!-- Allure Maven Plugin -->
-       <!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>  Use the latest version 
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>post-integration-test</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-		</plugins>
-	</build>-->
-	
-	<!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                    <configuration>
-                        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                        <reportDirectory>${project.build.directory}/site/allure-maven-plugin</reportDirectory>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>-->
-        <!-- <plugin>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-maven</artifactId>
-            <version>2.11.2</version>  Replace with the latest version 
-            <executions>
-                <execution>
-                    <id>allure-report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                    <configuration>
-                        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                        <reportDirectory>${project.build.directory}/site/allure-maven-plugin</reportDirectory>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>-->
         	</plugins>
 	</build>
 </project>

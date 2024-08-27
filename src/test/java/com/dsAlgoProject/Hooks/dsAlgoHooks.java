@@ -1,43 +1,31 @@
 package com.dsAlgoProject.Hooks;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.manager.SeleniumManager;
-import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.dsAlgoWebDriverManager.DriverManager;
 
-import io.cucumber.java.Scenario;
 import Utilities.ConfigReader;
 import Utilities.ExtentReportManager;
 import Utilities.RetryforFailedScenarios;
-import Utilities.Screenshots;
 import Utilities.TestDataFromExcelSheet;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
-import java.util.UUID;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import io.cucumber.java.Scenario;
 
 public class dsAlgoHooks {
 

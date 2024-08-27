@@ -16,15 +16,35 @@ Feature: Tree Functionality
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
 
+    
+    
+     Scenario: User navigates to the Homepage from OverviewofTreespage
+    Given the user is on "OverviewofTreespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
+
+
   Scenario: User navigates to Terminologies Page
     Given the user is on "treepage"
     When the user hits "Terminologies" button
     Then The user should land on the "Terminologies" page in treesection
+    
+      Scenario: User navigates to the Homepage from treepage
+    Given the user is on "treepage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
+
 
   Scenario: User navigates to tryEditor from Terminologies page
     Given the user is on "terminologiespage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+
+    
+     Scenario: User navigates to the Homepage from terminologiespage
+    Given the user is on "terminologiespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Types of Trees Page
     Given the user is on "treepage"
@@ -36,6 +56,12 @@ Feature: Tree Functionality
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
 
+    
+     Scenario: User navigates to the Homepage from typesoftreespage
+    Given the user is on "typesoftrees"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
+
   Scenario: User navigates to Tree Traversals Page
     Given the user is on "treepage"
      When the user hits "Tree Traversals" button
@@ -45,11 +71,22 @@ Feature: Tree Functionality
     Given the user is on "treetraversals"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from treetraversalspage
+    Given the user is on "treetraversals"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
+
 
   Scenario: User navigates to Traversals-Illustration
     Given the user is on "treepage"
      When the user hits "Traversals-Illustration" button
     Then The user should land on the "Traversals-Illustration" page in treesection
+    
+     Scenario: User navigates to the Homepage from TraversalsIllustrationpage
+    Given the user is on "TraversalsIllustrationpage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to tryEditor from Traversals Illustration page
     Given the user is on "TraversalsIllustrationpage"
@@ -65,6 +102,11 @@ Feature: Tree Functionality
     Given the user is on "binarytreespage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+       Scenario: User navigates to the Homepage from binarytreespage
+    Given the user is on "binarytreespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Types of Binary Trees Page
     Given the user is on "treepage"
@@ -75,6 +117,11 @@ Feature: Tree Functionality
     Given the user is on "typesofBinaryTreespage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from typesofBinaryTreespage
+    Given the user is on "typesofBinaryTreespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Implementation in Python Page
     Given the user is on "treepage"
@@ -85,6 +132,11 @@ Feature: Tree Functionality
     Given the user is on "implementationinpythonpage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from implementationinpythonpage
+    Given the user is on "implementationinpythonpage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Binary Tree Traversals Page
     Given the user is on "treepage"
@@ -95,6 +147,11 @@ Feature: Tree Functionality
     Given the user is on "binarytreetraversalspage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from binarytreetraversalspage
+    Given the user is on "binarytreetraversalspage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Implementation of Binary Trees Page
     Given the user is on "treepage"
@@ -105,6 +162,11 @@ Feature: Tree Functionality
     Given the user is on "implementationofbinarytrees"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from implementationofbinarytrees
+    Given the user is on "implementationofbinarytrees"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Applications of Binary trees Page
     Given the user is on "treepage"
@@ -116,6 +178,11 @@ Feature: Tree Functionality
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
 
+     Scenario: User navigates to the Homepage from applicationsofbinarytreespage
+    Given the user is on "applicationsofbinarytreespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
+
   Scenario: User navigates to Binary Search Trees Page
     Given the user is on "treepage"
     When the user hits "Binary Search Trees" button
@@ -125,6 +192,11 @@ Feature: Tree Functionality
     Given the user is on "binarysearchtreespage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
+    
+     Scenario: User navigates to the Homepage from binarysearchtreespage
+    Given the user is on "binarysearchtreespage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection
 
   Scenario: User navigates to Implementation Of BST Page
     Given the user is on "treepage"
@@ -135,8 +207,8 @@ Feature: Tree Functionality
     Given the user is on "implementationofBSTpage"
     When the user hits "Try Here" button
     Then The user should land on the "Assessment" page in treesection
-
-  Scenario: User navigates to Practice page
-    Given the user is on "OverviewofTreespage"
-     When the user hits "Practice Questions" button
-    Then The user should land on the "Practice Questions" page in treesection
+    
+     Scenario: User navigates to the Homepage from implementationofBSTpage
+    Given the user is on "implementationofBSTpage"
+     When the user hits "Sign out" button
+    Then The user should land on the "NumpyNinja" page in treesection

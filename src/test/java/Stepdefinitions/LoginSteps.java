@@ -1,34 +1,20 @@
 package Stepdefinitions;
 
+import java.io.IOException;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import com.dsAlgoProject.Hooks.dsAlgoHooks;
+import com.dsAlgoWebDriverManager.DriverManager;
+
 import PageFactory.NumpyNinjaPage;
-import Utilities.ExtentReportManager;
-import Utilities.Screenshots;
+import PageFactory.loginpage;
 import Utilities.TestDataFromExcelSheet;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import log4j.LoggerLoad;
-
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.InvalidPropertiesFormatException;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import com.aventstack.extentreports.ExtentTest;
-import com.dsAlgoProject.Hooks.dsAlgoHooks;
-import com.dsAlgoWebDriverManager.DriverManager;
-import PageFactory.loginpage;
 
 public class LoginSteps {
 

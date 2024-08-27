@@ -1,4 +1,5 @@
-<suite name="CrossbrowserTesting" parallel="none" thread-count="10">
+<suite name="CrossbrowserTesting" parallel="methods" thread-count="10">
+
 
 <!--<suite name="CrossbrowserTesting">
 -->
@@ -6,7 +7,9 @@
         <listener class-name="Utilities.RetryListner"/>
     </listeners>
 
+
 <test name="EdgeTest">
+
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
@@ -19,12 +22,12 @@
     </classes>
     
  </test>
-  <!--<test name="FirefoxTest">
+<test name="FirefoxTest">
 		<parameter name="browser" value="firefox"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
     </classes>
-    </test>-->
+    </test>
   <test name="RerunFailedTests">
     <classes>
             <class name="Utilities.RetryforFailedScenarios"/>

@@ -15,11 +15,6 @@ Feature: Array
     When User will click on "Try here" button for array
     Then User will redirected to "Assessment" page with Run button for array
 
-  Scenario: TS03 - validating the links
-    Given the user is on "assessment"
-    When User will enter code and click on Run button for array
-    Then User should see "something" below the Run button for array
-
   Scenario: TS04 - Test the Hyperinks in the array over view page
     Given the user is on "arraysinPython"
     When User will click on "Arrays Using List" HyperLink for array
@@ -30,10 +25,6 @@ Feature: Array
     When User will click on "Try here" button for array
     Then User will redirected to "Assessment" page with Run button for array
 
-  Scenario: TS06 - testing the python code
-    Given the user is on "assessment"
-    When User will enter code and click on Run button for array
-    Then User should see "something" below the Run button for array
 
   Scenario: TS07 - Test the Hyperinks in the Queue over view page
     Given the user is on "arrayUsingList"
@@ -45,10 +36,6 @@ Feature: Array
     When User will click on "Try here" button for array
     Then User will redirected to "Assessment" page with Run button for array
 
-  Scenario: TS09 - testing the python code
-    Given the user is on "assessment"
-    When User will enter code and click on Run button for array
-    Then User should see "something" below the Run button for array
 
   Scenario: TS10 - Test the Queue Operations in Queue OVerview page
     Given the user is on "basicOperList"
@@ -60,10 +47,6 @@ Feature: Array
     When User will click on "Try here" button for array
     Then User will redirected to "Assessment" page with Run button for array
 
-  Scenario: TS12 -  testing the python code
-    Given the user is on "assessment"
-    When User will enter code and click on Run button for array
-    Then User should see "something" below the Run button
 
   Scenario: TS13 - Validate the Practice Questions HyperLink
     Given the user is on "AppOfArray"

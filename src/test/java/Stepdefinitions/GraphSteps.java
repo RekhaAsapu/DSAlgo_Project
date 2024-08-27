@@ -1,24 +1,20 @@
 package Stepdefinitions;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 //import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import log4j.LoggerLoad;
 
 import com.dsAlgoProject.Hooks.dsAlgoHooks;
 import com.dsAlgoWebDriverManager.DriverManager;
 
 import PageFactory.GraphPage;
 import PageFactory.NumpyNinjaPage;
-import PageFactory.TreePage;
 import PageFactory.loginpage;
 import Utilities.TestDataFromExcelSheet;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import log4j.LoggerLoad;
 
 public class GraphSteps {
 	TestDataFromExcelSheet excelreader = new TestDataFromExcelSheet();

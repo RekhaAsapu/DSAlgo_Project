@@ -17,6 +17,7 @@
     |Sheetname            |RowNumber|
     |LoginUsernamePassword|     2|
   
+  
     
      Scenario Outline: Login with incorrect username and correct password from Excel
    Given the user is on "loginpage"
@@ -71,8 +72,3 @@
     When User clicks on getstarted button in numpyninja page for "Arrays"
     Then user should get error message saying "You are not logged in"
     
-    
-   
-   
-
- 

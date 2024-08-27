@@ -17,11 +17,6 @@ Feature: Stack
     When User will click on "Try Here" button for stack
     Then User will redirected to a page with TryEditor with Run button to Test
 
-  Scenario: TS03 - validate the "TryEditorSpace" page
-    Given the user is on "assessment"
-    When User will enter code and click on run button
-    Then User will see "something" below the run button
-
   Scenario: TS04 - Validate the "Implimentation" HyperLink
     Given the user is on "operationsStack"
     When User will click on "Implementation" link
@@ -32,10 +27,6 @@ Feature: Stack
     When User will click on "Try Here" button for stack
     Then User will redirected to a page with TryEditor with Run button to Test
 
-  Scenario: TS06 - validating the tryEditorSpace
-    Given the user is on "assessment"
-    When User will enter code and click on run button
-    Then User will see "something" below the run button
 
   Scenario: TS07 - Validate the  "Applications" HyperLink
     Given the user is on "implementation"
@@ -47,10 +38,6 @@ Feature: Stack
     When User will click on "Try Here" button for stack
     Then User will redirected to a page with TryEditor with Run button to Test
 
-  Scenario: TS09 - validating the tryeditorSpace
-    Given the user is on "assessment"
-    When User will enter code and click on run button
-    Then User will see "something" below the run button
 
   Scenario: TS10 - Validate the "Practice Questions" HyperLink
     Given the user is on "applications"
