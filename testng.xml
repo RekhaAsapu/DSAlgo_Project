@@ -8,13 +8,13 @@
     </listeners>
 
 
-<!--<test name="EdgeTest">
+<test name="EdgeTest">
 
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
     </classes>
-   </test>-->
+   </test>
         <test name="ChromeTest">
 		<parameter name="browser" value="chrome"></parameter>
     <classes>
@@ -22,12 +22,12 @@
     </classes>
     
  </test>
-<!-- <test name="FirefoxTest">
+<test name="FirefoxTest">
 		<parameter name="browser" value="firefox"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
     </classes>
-    </test>-->
+    </test>
   <test name="RerunFailedTests">
     <classes>
             <class name="Utilities.RetryforFailedScenarios"/>
