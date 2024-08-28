@@ -19,67 +19,51 @@ public class ArrayStepDefinitions {
 	NumpyNinjaPage numpyninjapage;
 	
 	
-	public   ArrayStepDefinitions() {
-		
-		 this.driver = DriverManager.getDriver();
-		 numpyninjapage =new NumpyNinjaPage(driver);
-		 arrayPage = new ArrayPage(driver); 
-		
+	public ArrayStepDefinitions() {
+
+		this.driver = DriverManager.getDriver();
+		numpyninjapage = new NumpyNinjaPage(driver);
+		arrayPage = new ArrayPage(driver);
+
 	}
-		
-	@Then("User will redirected to the Array over view  page")
-	public void user_will_redirected_to_the_array_over_view_page() {
-	    
-		//System.out.println("im here in Then");
-		assertEquals(driver.getTitle(), "Array");
-		LoggerLoad.info("assert passed for the Array");
-	}
-    
-	
-	//***********common for all the links to be clicked************
+
 	@When("User will click on {string} HyperLink for array")
 	public void user_will_click_on_hyperlink_for_array(String linkName) throws Exception {
-		
-	   System.out.println("im here");
+
 		arrayPage.clickingLink(linkName);
 		LoggerLoad.info("The user clicked on the " + linkName);
 	}
-	
-	//*************common for all the redirected pages*********************
-		@Then("User will redirected to the page with title {string} in array")
-		public void user_will_redirected_to_the_page_with_title_in_array(String pageTitle) {
-			
-			
-           System.out.println("im here in then");
-			assertEquals(driver.getTitle(), pageTitle);
-			LoggerLoad.info("assert passed for the" + pageTitle);
-			
-		}
-	
-    //**************common for all the try here button********************
+
+	@Then("User will redirected to the page with title {string} in array")
+	public void user_will_redirected_to_the_page_with_title_in_array(String pageTitle) {
+
+		assertEquals(arrayPage.getTitle(), pageTitle);
+		LoggerLoad.info("assert passed for the" + pageTitle);
+
+	}
+
 	@When("User will click on {string} button for array")
 	public void user_will_click_on_button(String tryHere) {
-		
 		arrayPage.clickonTryEditor();
-		
 	}
-	
-	
-	//*****************common for all the assessment page*******************
-	@Then("User will redirected to {string} page with Run button for array")
-	public void user_will_redirected_to_page_with_run_button_for_array(String string) {
-	   
-		assertEquals(driver.getTitle(), "Assessment");
-		
-	}
-	
 
-	
+	@Then("User will redirected to {string} page with Run button for array")
+	public void user_will_redirected_to_page_with_run_button_for_array(String expectedPage) {
+
+		assertEquals(arrayPage.getTitle(), expectedPage);
+	}
+
 	@Then("User will redirected to {string} page for arrayQuestions")
-	public void user_will_redirected_to_page_for_arrayquestions(String string) {
-	    
-		assertEquals(driver.getTitle(), "Practice Questions");
+	public void user_will_redirected_to_page_for_arrayquestions(String expectedPage) {
+
+		assertEquals(arrayPage.getTitle(), expectedPage);
 	}
 	
+	@Then("User will redirected to the Array over view  page")
+	public void user_will_redirected_to_the_array_over_view_page() {
+
+		assertEquals(arrayPage.getTitle(), "Array");
+		LoggerLoad.info("assert passed for the Array");
+	}
 
 }

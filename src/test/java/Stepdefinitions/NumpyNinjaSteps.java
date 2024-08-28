@@ -31,9 +31,8 @@ public class NumpyNinjaSteps {
 
 	public NumpyNinjaSteps() {
 		this.driver = DriverManager.getDriver();
-		numpyninjapage=new NumpyNinjaPage(driver);
+		numpyninjapage = new NumpyNinjaPage(driver);
 	}
-
 
 	@When("I select {string} from the dropdown")
 	public void i_select_from_the_dropdown(String option) {
@@ -47,9 +46,9 @@ public class NumpyNinjaSteps {
 		Assert.assertEquals(actual, expected, "Title does not match");
 	}
 
-	@When("I select {string} from the subtitle")           
+	@When("I select {string} from the subtitle")
 	public void i_select_option_from_the_subtitle(String option) {
-		
+
 		System.out.println("i_select_option_from_the_subtitle");
 		numpyninjapage.clickonthegetstartedbutton(option);
 		System.out.println("clicked on queue");
@@ -57,7 +56,7 @@ public class NumpyNinjaSteps {
 
 	@Then("I should be navigated to the {string}")
 	public void i_should_be_navigated_to_the_expected_page_title(String expected) {
-		actual=numpyninjapage.getTitle();
+		actual = numpyninjapage.getTitle();
 		Assert.assertEquals(actual, expected, "The page title does not match the expected title.");
 	}
 
