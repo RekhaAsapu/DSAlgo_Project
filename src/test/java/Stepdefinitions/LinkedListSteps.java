@@ -15,37 +15,34 @@ import io.cucumber.java.en.When;
 import log4j.LoggerLoad;
 
 public class LinkedListSteps {
-	
+
 	loginpage loginPage;
 	dsAlgoHooks hooks = new dsAlgoHooks();
-	 private WebDriver driver;
-	 NumpyNinjaPage numpyninjapage ;
-	 LinkedListPage linkedlistpage;
-	 TreePage treepage;
-	 String actual;
-		String expected;
-		
-	
-	public LinkedListSteps() {	    	
-    	this.driver = DriverManager.getDriver();
-    	  numpyninjapage =new NumpyNinjaPage(driver);
-    	   linkedlistpage =new LinkedListPage(driver);
-    }
+	private WebDriver driver;
+	NumpyNinjaPage numpyninjapage;
+	LinkedListPage linkedlistpage;
+	TreePage treepage;
+	String actual;
+	String expected;
 
-	
-	 @When("the user selects {string} button")
-	    public void the_user_selects_button(String link) {
-		 linkedlistpage.selectonlink(link);
-			LoggerLoad.info("User clicked on the "+link);
-	    }
+	public LinkedListSteps() {
+		this.driver = DriverManager.getDriver();
+		numpyninjapage = new NumpyNinjaPage(driver);
+		linkedlistpage = new LinkedListPage(driver);
+	}
 
-	    @Then("the user should land on the {string} page")
-	    public void the_user_should_land_on_the_page(String pagename) {
-	    	expected=pagename;
-			actual=linkedlistpage.getTitle();
-			Assert.assertEquals(actual, expected,"They are not matching");
-			LoggerLoad.info("assert passed for the "+ pagename);	 
-	    }
+	@When("the user selects {string} button")
+	public void the_user_selects_button(String link) {
+		linkedlistpage.selectonlink(link);
+		LoggerLoad.info("User clicked on the " + link);
+	}
 
+	@Then("the user should land on the {string} page")
+	public void the_user_should_land_on_the_page(String pagename) {
+		expected = pagename;
+		actual = linkedlistpage.getTitle();
+		Assert.assertEquals(actual, expected, "They are not matching");
+		LoggerLoad.info("assert passed for the " + pagename);
+	}
 
 }

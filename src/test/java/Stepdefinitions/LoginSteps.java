@@ -96,7 +96,7 @@ public class LoginSteps {
 		actualMessage = loginPage.getRequiredFieldErrorMessage(field);
 
 		LoggerLoad.info("User did not enter fields " + field);
-		System.out.println( actualMessage.trim());
+		System.out.println(actualMessage.trim());
 		System.out.println(expectedMessage.trim());
 		// Thread.sleep(99);
 
@@ -105,4 +105,3 @@ public class LoginSteps {
 	}
 
 }
-
