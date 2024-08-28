@@ -1,7 +1,6 @@
-<suite name="CrossbrowserAndParallelTesting" parallel="methods" thread-count="10">
-	
-<test name="EdgeTest">
 
+<suite name="CrossbrowserAndParallelTesting" parallel="methods" thread-count="10">
+<test name="EdgeTest">
 		<parameter name="browser" value="edge"></parameter>
     <classes>
             <class name="com.dsAlgoTestRunner.TestRunner"/>
@@ -23,7 +22,7 @@
   
   <test name="RerunFailedTests" parallel="false">
         <classes>
-			<class name="com.dsAlgoTestRunner.TestRunnerForFailed"/>
+		       	<class name="com.dsAlgoTestRunner.TestRunnerForFailed"/>
             <class name="Utilities.RetryforFailedScenarios"/>
         </classes>
     </test>
