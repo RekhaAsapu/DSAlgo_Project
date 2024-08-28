@@ -31,14 +31,8 @@ public class LinkedListPage extends BasePage {
 	@FindBy(xpath = "//a[text()='Deletion']")
 	private  WebElement Deletionlink;
 
-//	@FindBy(xpath = "//textarea[@tabindex='0']") 
-//	private WebElement textEditor;
-
 	@FindBy(xpath = "//button[text()='Run']")
 	private WebElement runButton;
-
-//	@FindBy(xpath = "//*[@id='output']")
-//	private WebElement actualValue;
 
 	@FindBy(xpath = "//a[text()='Practice Questions']")
 	private  WebElement practicelink;

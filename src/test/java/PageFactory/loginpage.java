@@ -73,23 +73,19 @@ public class loginpage extends BasePage {
 
 	public  void enterusername(String username) throws InterruptedException {
 		userName.click();
-		//Thread.sleep(90);
 		wait.until(ExpectedConditions.visibilityOf(userName));
 
 		userName.sendKeys(username);
 		userName.sendKeys(Keys.TAB);
-		//Thread.sleep(99);
 	}
 
 	public  void enterpassword(String password) throws InterruptedException {
 		passWord.clear();
-		//Thread.sleep(90);
 		wait.until(ExpectedConditions.visibilityOf(passWord));
 		passWord.sendKeys(password);
 	}
 
 	public NumpyNinjaPage clickonloginbutton() {
-		// login.click();
 		clickSomeElement(login);
 		return new NumpyNinjaPage(driver);
 	}

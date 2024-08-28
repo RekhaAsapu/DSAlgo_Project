@@ -34,9 +34,7 @@ public class ArrayPage extends BasePage {
 	//TryEditor
     @FindBy(xpath= "//a[@href='/tryEditor']")	
     WebElement TryEdt_btn;
-			
-//	@FindBy(xpath="//textarea[@tabindex='0']")
-//	WebElement typeeditor_space;
+		
 			
 	@FindBy(xpath="//button[contains(text(),'Run')]")
 	WebElement run_btn;
@@ -48,23 +46,11 @@ public class ArrayPage extends BasePage {
 	public void clickonTryEditor() {
 		TryEdt_btn.click();
 	}
-
-//	public void clickonEditorSpace() {
-//		
-//		String pythonCode = "print(\"something\")";
-//		typeeditor_space.sendKeys(pythonCode);
-//		
-//	}
 	
 	public void clickRun() {
 		 run_btn.click();
 	}
-	
-//	public String result() {
-//		return output.getText();
-//		
-//	}
-	
+
 	
 	public void clickingLink(String linkName) throws Exception {
 		
