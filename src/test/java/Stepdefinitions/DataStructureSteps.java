@@ -36,7 +36,7 @@ public class DataStructureSteps {
 		expected=expectedPage;
 		actual=datastructurepage.getTitle();
 		Assert.assertEquals(actual, expected,"They are not matching");
-		LoggerLoad.info("assert passed for the "+ expectedPage);;
+		LoggerLoad.info("assert passed for the "+ expectedPage);
 
 
 	}

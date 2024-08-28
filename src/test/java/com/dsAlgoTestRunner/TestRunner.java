@@ -18,7 +18,6 @@ import io.cucumber.testng.CucumberOptions;
 			"timeline:test-output-thread/","rerun:target/rerun.txt",
 			"json:target/cucumber.json", "html:target/report/cucumber.html"}
 	)
-	@Listeners({RetryListner.class})
 	public class TestRunner  extends AbstractTestNGCucumberTests {
 	   
 		@BeforeTest

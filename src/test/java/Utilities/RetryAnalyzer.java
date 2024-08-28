@@ -18,6 +18,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     @Override
     public boolean retry(ITestResult result) {
         if (retryCount < maxRetryCount) {
+        	System.out.println("=================i'm in RetryAnalyzer-------------------------- ");
             retryCount++;
             return true;  
         }
