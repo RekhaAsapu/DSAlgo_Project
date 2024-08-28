@@ -12,10 +12,7 @@ import org.openqa.selenium.support.FindBy;
 		}
 		@FindBy(xpath="//a[text()='Graph Representations']")
 		private  WebElement graphrepresentationslink;
-		
-//		@FindBy(xpath="//textarea[@tabindex='0']")
-//		private WebElement textEditor;
-	//	div:nth-child(1) > textarea
+
 		@FindBy(css="div:nth-child(1) > textarea")
 		private WebElement textEditor;
 		
@@ -56,15 +53,11 @@ import org.openqa.selenium.support.FindBy;
 		
 		public void clickontryherebutton() throws InterruptedException
 		{
-			//Thread.sleep(90);
 			tryherebutton.click();
 		}
 		public void entertextintextEditor(String pythoncode) throws InterruptedException
 		{
-			//Thread.sleep(90);
 			textEditor.sendKeys(pythoncode);
-			//Thread.sleep(90);
-
 		}
 		
 		public void clickonrunbutton()

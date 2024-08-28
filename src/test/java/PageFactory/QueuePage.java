@@ -16,16 +16,7 @@ public class QueuePage extends BasePage {
 	public QueuePage(WebDriver driver) {
 		
 		super(driver);
-	}
-	
-//	public WebElement getLinkByText(String linkText) {
-//        return driver.findElement(By.linkText(linkText));
-//    }
-//
-//    public void clickLink(String linkText) {
-//        getLinkByText(linkText).click();
-//    }
-	   
+	} 
 	
 	@FindBy(xpath = "//a[@href=\"queue\"]")
 	WebElement getStartedQueueBtn;
@@ -50,15 +41,11 @@ public class QueuePage extends BasePage {
 	@FindBy(xpath = "//a[@href=\"/tryEditor\"]")
 	WebElement tryhereBtn;
 	
-//	@FindBy(xpath = "//textarea[@tabindex='0']")
-//	WebElement typeEditorSpace;
-	
 	@FindBy(xpath = "//button[@type=\"button\"]")
 	WebElement runBtn;
 	
 	@FindBy(xpath = "//pre[@id=\"output\"]")
-	WebElement output;
-	
+	WebElement output;	
 	
 	public void getStartedQueue() {
 		
@@ -66,44 +53,13 @@ public class QueuePage extends BasePage {
 		getStartedQueueBtn.click();
 		
 	}
-	
-//	public void implQueuePython() {
-//		
-//		implQueuePython_Link.click();
-//	}
-//	
-//	public void implUsingCollectionDeque() {
-//		
-//		implCollectionDeque_Link.click();
-//	}
-//	
-//	public void implUsingArray() {
-//		
-//		implUsingArray_Link.click();
-//	}
-//	
-//	public void queueOperations() {
-//		
-//		queueOper_Link.click();
-//	}
-//	
-//	public void practiceQuestions() {
-//		
-//		practiceQues_Link.click();
-//	}
-	
+
 	public  void TryhereBtn() {
 		
 		tryhereBtn.click();
 	}
 	
-//	public void TryEditorSpace() {
-//		
-//		String pythonCode = "print(\"something\")";
-//		typeEditorSpace.sendKeys(pythonCode);
-//		
-//	}
-	
+
 	public void run() {
 		
 		runBtn.click();

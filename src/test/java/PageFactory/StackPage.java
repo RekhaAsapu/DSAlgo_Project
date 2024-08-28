@@ -8,24 +8,12 @@ import org.openqa.selenium.WebDriver;
 
 	public  class StackPage extends BasePage {			
 
-	//	private WebDriver driver;
-
 		public  StackPage(WebDriver driver) {
 			
 		    super(driver);
 
 		}
-		
-//		public WebElement getLinkByText(String linkText) {
-//			
-//	        return driver.findElement(By.linkText(linkText));
-//	    }
-//
-//	    public void clickLink(String linkText) {
-//	        getLinkByText(linkText).click();
-//	    }
-		
-		//Stack Page links
+
 		@FindBy(xpath = "//a[@href='data-structures-introduction']")
 		WebElement getStarted_dataStructure;
 		
@@ -49,10 +37,7 @@ import org.openqa.selenium.WebDriver;
 		//TryEditor
 		@FindBy(xpath= "//a[@href='/tryEditor']")
 		WebElement TryEdt_btn;
-		
-//		@FindBy(xpath="//textarea[@tabindex='0']")
-//		WebElement typeeditor_space;
-		
+
 		@FindBy(xpath="//button[contains(text(),'Run')]")
 		WebElement run_btn;
 		
@@ -64,38 +49,10 @@ import org.openqa.selenium.WebDriver;
 			getStarted_stack.click();
 		}
 		
-//		public void clickonOperationOfStack() {
-//			
-//			operation_Lnk.click();
-//			
-//		}
-		
-//		public void clickonImplementation() {
-//			implemen_Lnk.click();
-//		}
-//		
-//		
-//		
-//		public void clickonApplication() {
-//			applic_Lnk.click();
-//		}
-//		
-//		
-//		public void clickonPracticeQuestion() {
-//			practiceQues_Lnk.click();
-//		}
-		
 		public void clickonTryEditor() {
 			TryEdt_btn.click();
 		}
-	
-//		public void clickonEditorSpace() {
-//			
-//			String pythonCode = "print(\"something\")";
-//			typeeditor_space.sendKeys(pythonCode);
-//			
-//		}
-		
+
 		public void clickRun() {
 			 run_btn.click();
 		}
@@ -136,11 +93,7 @@ import org.openqa.selenium.WebDriver;
 			default:
 				throw new IllegalArgumentException("you hit the wrong link" + linkName);
 			
-			}
-            
-
-		
-		}
-	
+			}		
+		}	
 
 }
