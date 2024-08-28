@@ -206,9 +206,9 @@
 
   </systemPropertyVariables>
                 <properties>
-                    <dataproviderthreadcount>30</dataproviderthreadcount>
+                    <dataproviderthreadcount>3</dataproviderthreadcount>
                     <parallel>methods</parallel>
-                    <threadcount>7</threadcount>
+                    <threadcount>3</threadcount>
                 </properties>
             </configuration>
         </plugin>
